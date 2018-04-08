@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af259ff8-023c-41c1-a031-54e5474777d5" name="Default" comment="" />
+    <list default="true" id="af259ff8-023c-41c1-a031-54e5474777d5" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -149,7 +151,7 @@
     <handled-path value="$PROJECT_DIR$/ang-src/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="250" />
     <option name="y" value="57" />
     <option name="width" value="1562" />
@@ -296,7 +298,7 @@
       <option name="presentableId" value="Default" />
       <updated>1522696062641</updated>
       <workItem from="1522696065505" duration="5133000" />
-      <workItem from="1522939348841" duration="52569000" />
+      <workItem from="1522939348841" duration="53133000" />
     </task>
     <task id="LOCAL-00001" summary="rooted ang-src">
       <created>1523183822211</created>
@@ -309,7 +311,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57702000" />
+    <option name="totallyTimeSpent" value="58266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="7" />
@@ -318,11 +320,11 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1836248" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5007949" side_tool="true" visible="true" weight="0.4724541" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5007949" side_tool="true" visible="true" weight="0.4724541" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49920508" visible="true" weight="0.4724541" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49920508" visible="true" weight="0.4724541" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
