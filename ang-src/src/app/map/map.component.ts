@@ -34,25 +34,28 @@ export class MapComponent implements OnInit {
       .subscribe(geo => {
         let localtiesLayer = L.geoJSON(geo, {
           style: () => ({
-            color: "#464646",
-            weight: 2,
-            opacity: 0.6,
-            fillOpacity: 0.1,
-            fillColor: "#464646"
+            color: "#6B1212",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.6,
+            fillColor: "#FF0000"
           }),
           onEachFeature: (feature, layer) => {
             let popup = L.popup().setContent(feature.properties.Name);
             layer.bindPopup(popup);
 
             layer.on({
-              mouseover: () => {
-                layer.openPopup();
+              mouseover: (e) => {
+                e.target.openPopup();
               },
               click: (e) => {
                 this.selected = feature.properties.Name;
                 console.log(this.selected);
                 this.onSelected.emit(this.selected);
                 map.fitBounds(e.target.getBounds());
+                localtiesLayer.setStyle({fillOpacity: 0.6});
+                e.target.setStyle({fillOpacity: 0.2});
+                e.target.closePopup();
               }
             });
           }

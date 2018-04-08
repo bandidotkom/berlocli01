@@ -1,10 +1,10 @@
 <app-header></app-header>
-<div class="row">
-  <div class="col-md-4">
+<div id="exploremain" class="row">
+  <div class="col-md-7">
     <p>Please select a localty by clicking the map.</p>
     <p>Your selection: {{selected}}</p>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-5">
     <app-map (onSelected)="onSelected($event)"></app-map>
   </div>
 </div>
