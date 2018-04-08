@@ -17,16 +17,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="map.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="map.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ang-src/src/app/map/map.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="493">
+              <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ang-src/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="berlin_ortsteile.geojson" pinned="false" current-in-tab="false">
@@ -79,11 +84,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="explore.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ang-src/src/app/explore/explore.component.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="search.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ang-src/src/app/search/search.component.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -105,6 +105,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ang-src" />
   </component>
   <component name="IdeDocumentHistory">
@@ -298,15 +299,15 @@
       <option name="presentableId" value="Default" />
       <updated>1522696062641</updated>
       <workItem from="1522696065505" duration="5133000" />
-      <workItem from="1522939348841" duration="51145000" />
+      <workItem from="1522939348841" duration="52244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56278000" />
+    <option name="totallyTimeSpent" value="57377000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="7" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1836248" />
@@ -356,7 +357,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
-      <path value="$PROJECT_DIR$/ang-src" />
+      <path value="$PROJECT_DIR$/ngx-leaflet-tutorial-ngcli" />
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
@@ -638,13 +639,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ang-src/src/app/map/map.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="25" selection-end-column="20" />
+        <state relative-caret-position="493">
+          <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ang-src/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
