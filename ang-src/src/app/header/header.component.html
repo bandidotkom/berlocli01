@@ -15,10 +15,10 @@
 
       <li class="nav-item">
 
-          <span *ngFor="let loc of compareList">
-            | {{ loc }}
-          </span>
-
+        <span *ngFor="let loc of compareList" class="fragment" href="google.com">{{ loc }} <a id="close" (click)="delete($event)"> x</a>
+        </span>
+      </li>
+      <li>
         <a class="nav-link disabled" routerLink="/compare">Compare</a>
       </li>
     </ul>

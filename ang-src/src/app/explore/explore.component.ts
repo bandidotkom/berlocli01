@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HeaderComponent} from "../header/header.component";
+import {CompareListService} from "../services/compare-list.service";
 
 @Component({
   selector: 'app-explore',
@@ -8,26 +8,15 @@ import {HeaderComponent} from "../header/header.component";
 })
 export class ExploreComponent implements OnInit {
   selected: string;
-  constructor() { }
-  compareListExplore = [];
+  constructor(private compareListService: CompareListService) { }
+
   ngOnInit() {
   }
-
+  addToCompareList(){
+    this.compareListService.addToList(this.selected);
+  }
   onSelected(localty: string) {
     this.selected = localty;
-  }
-  addToCompare() {
-    let i = this.compareListExplore.length;
-    if (this.compareListExplore.includes(this.selected)) {
-      alert(this.selected + " was already added.");
-    }
-    else if (i < 5) {
-      this.compareListExplore[i] = this.selected;
-      console.log(this.compareListExplore);
-    }
-    else {
-      alert("You can compare only 5 localties at maximum.");
-    }
   }
 
 }
