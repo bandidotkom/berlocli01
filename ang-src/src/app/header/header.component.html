@@ -6,20 +6,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/explore">Explore <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/explore" routerLinkActive="active-link">Explore <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/search">Search</a>
+        <a class="nav-link" routerLink="/search" routerLinkActive="active-link">Search</a>
       </li>
 
       <li class="nav-item">
-
+        Compare list:
         <span *ngFor="let loc of compareList" class="fragment" href="google.com">{{ loc }} <a id="close" (click)="delete($event)"> x</a>
         </span>
       </li>
-      <li>
-        <a class="nav-link disabled" routerLink="/compare">Compare</a>
+      <li class="nav-item">
+        <a [ngClass]="isDisabled()" routerLink="/compare" routerLinkActive="active-link">Compare</a>
       </li>
     </ul>
 

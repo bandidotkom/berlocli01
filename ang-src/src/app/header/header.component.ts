@@ -9,16 +9,22 @@ import {CompareListService} from "../services/compare-list.service";
 export class HeaderComponent implements OnInit {
   compareList: string[];
   constructor(private compareListService: CompareListService) { }
-
   ngOnInit() {
     this.compareList = this.compareListService.getList();
-    console.log(this.compareList);
   }
 
   delete(e) {
     let localty = e.target.parentElement.innerHTML.split('<')[0].trim();
-    console.log(localty);
     this.compareListService.deleteFromList(localty);
   }
+
+  isDisabled() {
+    if (this.compareList.length>0){
+      return "nav-link";
+    } else {
+      return "nav-link disabled";
+    }
+  }
+
 
 }

@@ -11,15 +11,17 @@ export class CompareListService {
 
   addToList(localty: string) {
     let i = this.compareList.length;
-    if (this.compareList.includes(localty)) {
+    if (localty == undefined) {
+      alert("Please select a localty first.")
+    }
+    else if (this.compareList.includes(localty)) {
       alert(localty + " was already added.");
     }
-    else if (i < 5) {
-      this.compareList[i] = localty;
-      console.log(this.compareList);
+    else if (i >= 5) {
+      alert("You can compare only 5 localties at maximum.");
     }
     else {
-      alert("You can compare only 5 localties at maximum.");
+      this.compareList[i] = localty;
     }
   }
 

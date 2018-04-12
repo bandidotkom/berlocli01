@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
   }//ngOnInit()
 
   onMapReady(map: L.Map) {
-    this.http.get<any>('assets/data/berlin_ortsteile.geojson')
+    this.http.get<any>('assets/data/ortsteile.geojson')
       .subscribe(geo => {
         let localtiesLayer = L.geoJSON(geo, {
           style: () => ({
@@ -43,14 +43,12 @@ export class MapComponent implements OnInit {
           onEachFeature: (feature, layer) => {
             let popup = L.popup().setContent(feature.properties.Name);
             layer.bindPopup(popup);
-
             layer.on({
               mouseover: (e) => {
                 e.target.openPopup();
               },
               click: (e) => {
                 this.selected = feature.properties.Name;
-                console.log(this.selected);
                 this.onSelected.emit(this.selected);
                 map.fitBounds(e.target.getBounds());
                 localtiesLayer.setStyle({fillOpacity: 0.6});

@@ -18,5 +18,8 @@ export class ExploreComponent implements OnInit {
   onSelected(localty: string) {
     this.selected = localty;
   }
+  isSelected() {
+    return this.selected!=undefined;
+  }
 
 }
