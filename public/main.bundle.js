@@ -37,12 +37,16 @@ module.exports = "<router-outlet></router-outlet>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
@@ -52,7 +56,8 @@ var AppComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
-            styles: [__webpack_require__("./src/app/app.component.css")]
+            styles: [__webpack_require__("./src/app/app.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */]]
         })
     ], AppComponent);
     return AppComponent;
@@ -186,6 +191,8 @@ module.exports = "<app-header></app-header>\n<p>\n  compare works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompareComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -196,10 +203,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var CompareComponent = /** @class */ (function () {
-    function CompareComponent() {
+    function CompareComponent(compareListService, populationService) {
+        this.compareListService = compareListService;
+        this.populationService = populationService;
     }
     CompareComponent.prototype.ngOnInit = function () {
+        var cList = this.compareListService.getList();
+        for (var _i = 0, cList_1 = cList; _i < cList_1.length; _i++) {
+            var loc = cList_1[_i];
+            this.populationService.getPopulation(loc)
+                .subscribe(function (population) { console.log(population); });
+        }
     };
     CompareComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -207,7 +224,7 @@ var CompareComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/compare/compare.component.html"),
             styles: [__webpack_require__("./src/app/compare/compare.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_1__services_population_service__["a" /* PopulationService */]])
     ], CompareComponent);
     return CompareComponent;
 }());
@@ -219,14 +236,14 @@ var CompareComponent = /** @class */ (function () {
 /***/ "./src/app/explore/explore.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#exploremain {\r\n  height: 600px;\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map (onSelected)=\"onSelected($event)\"></app-map>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-7\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">facts</button>\n  </div>\n  <div class=\"col-md-5\">\n    <app-map (onSelected)=\"onSelected($event)\"></app-map>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -236,6 +253,8 @@ module.exports = "<app-header></app-header>\n<div class=\"row\">\n  <div class=\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExploreComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -246,13 +265,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ExploreComponent = /** @class */ (function () {
-    function ExploreComponent() {
+    function ExploreComponent(compareListService, populationService) {
+        this.compareListService = compareListService;
+        this.populationService = populationService;
     }
     ExploreComponent.prototype.ngOnInit = function () {
     };
+    ExploreComponent.prototype.addToCompareList = function () {
+        this.compareListService.addToList(this.selected);
+    };
     ExploreComponent.prototype.onSelected = function (localty) {
         this.selected = localty;
+    };
+    ExploreComponent.prototype.isSelected = function () {
+        return this.selected != undefined;
+    };
+    ExploreComponent.prototype.showFacts = function () {
+        this.populationService.getPopulation(this.selected)
+            .subscribe(function (population) { console.log(population); });
     };
     ExploreComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -260,7 +293,8 @@ var ExploreComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/explore/explore.component.html"),
             styles: [__webpack_require__("./src/app/explore/explore.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */]])
     ], ExploreComponent);
     return ExploreComponent;
 }());
@@ -272,14 +306,14 @@ var ExploreComponent = /** @class */ (function () {
 /***/ "./src/app/header/header.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".navbar .navbar-brand {\r\n  background-color: #464646;\r\n}\r\n"
+module.exports = ".navbar .navbar-brand {\r\n  background-color: #464646;\r\n}\r\n\r\na.nav-link.active-link {\r\n  font-weight: bold;\r\n}\r\n\r\na.nav-link.disabled {\r\n  pointer-events: none;\r\n  cursor: default;\r\n  text-decoration:none;\r\n}\r\n\r\n#close {\r\n  float:right;\r\n  display:inline-block;\r\n  padding:2px 5px;\r\n  background:#ccc;\r\n}\r\n\r\n.fragment {\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  display: inline-block;\r\n  padding: 10px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\n.fragment:hover {\r\n  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,.2);\r\n          box-shadow: 2px 2px 5px rgba(0,0,0,.2);\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"/\">BERLO</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" routerLink=\"/explore\">Explore <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/search\">Search</a>\n      </li>\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link disabled\" routerLink=\"/compare\">Compare</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"/\">BERLO</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/explore\" routerLinkActive=\"active-link\">Explore <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/search\" routerLinkActive=\"active-link\">Search</a>\n      </li>\n\n      <li class=\"nav-item\">\n        Compare list:\n        <span *ngFor=\"let loc of compareList\" class=\"fragment\" href=\"google.com\">{{ loc }} <a id=\"close\" (click)=\"delete($event)\"> x</a>\n        </span>\n      </li>\n      <li class=\"nav-item\">\n        <a [ngClass]=\"isDisabled()\" routerLink=\"/compare\" routerLinkActive=\"active-link\">Compare</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -289,6 +323,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -299,10 +334,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(compareListService) {
+        this.compareListService = compareListService;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+        this.compareList = this.compareListService.getList();
+    };
+    HeaderComponent.prototype.delete = function (e) {
+        var localty = e.target.parentElement.innerHTML.split('<')[0].trim();
+        this.compareListService.deleteFromList(localty);
+    };
+    HeaderComponent.prototype.isDisabled = function () {
+        if (this.compareList.length > 0) {
+            return "nav-link";
+        }
+        else {
+            return "nav-link disabled";
+        }
     };
     HeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -310,7 +360,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/header/header.component.html"),
             styles: [__webpack_require__("./src/app/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -322,14 +372,14 @@ var HeaderComponent = /** @class */ (function () {
 /***/ "./src/app/map/map.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".map {\r\n  height: 100%;\r\n  padding: 0;\r\n}\r\n.container {\r\n  height:400px;\r\n}\r\n"
+module.exports = ".map {\r\n  height: 100%;\r\n  padding: 0;\r\n}\r\n\r\n"
 
 /***/ }),
 
 /***/ "./src/app/map/map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"map\"\n       leaflet\n       (leafletMapReady)=\"onMapReady($event)\"\n       [leafletLayers]=\"layers\"\n       [leafletOptions]=\"options\">\n  </div>\n</div>\n\n\n"
+module.exports = "\n  <div class=\"map\"\n       leaflet\n       (leafletMapReady)=\"onMapReady($event)\"\n       [leafletLayers]=\"layers\"\n       [leafletOptions]=\"options\">\n  </div>\n\n\n\n"
 
 /***/ }),
 
@@ -372,28 +422,30 @@ var MapComponent = /** @class */ (function () {
     }; //ngOnInit()
     MapComponent.prototype.onMapReady = function (map) {
         var _this = this;
-        this.http.get('assets/data/berlin_ortsteile.geojson')
+        this.http.get('assets/data/ortsteile.geojson')
             .subscribe(function (geo) {
             var localtiesLayer = __WEBPACK_IMPORTED_MODULE_2_leaflet__["geoJSON"](geo, {
                 style: function () { return ({
-                    color: "#464646",
-                    weight: 2,
-                    opacity: 0.6,
-                    fillOpacity: 0.1,
-                    fillColor: "#464646"
+                    color: "#6B1212",
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.6,
+                    fillColor: "#FF0000"
                 }); },
                 onEachFeature: function (feature, layer) {
                     var popup = __WEBPACK_IMPORTED_MODULE_2_leaflet__["popup"]().setContent(feature.properties.Name);
                     layer.bindPopup(popup);
                     layer.on({
-                        mouseover: function () {
-                            layer.openPopup();
+                        mouseover: function (e) {
+                            e.target.openPopup();
                         },
                         click: function (e) {
                             _this.selected = feature.properties.Name;
-                            console.log(_this.selected);
                             _this.onSelected.emit(_this.selected);
                             map.fitBounds(e.target.getBounds());
+                            localtiesLayer.setStyle({ fillOpacity: 0.6 });
+                            e.target.setStyle({ fillOpacity: 0.2 });
+                            e.target.closePopup();
                         }
                     });
                 }
@@ -464,6 +516,110 @@ var SearchComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], SearchComponent);
     return SearchComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/compare-list.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompareListService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CompareListService = /** @class */ (function () {
+    function CompareListService() {
+        this.compareList = [];
+    }
+    CompareListService.prototype.getList = function () {
+        return this.compareList;
+    };
+    CompareListService.prototype.addToList = function (localty) {
+        var i = this.compareList.length;
+        if (localty == undefined) {
+            alert("Please select a localty first.");
+        }
+        else if (this.compareList.includes(localty)) {
+            alert(localty + " was already added.");
+        }
+        else if (i >= 5) {
+            alert("You can compare only 5 localties at maximum.");
+        }
+        else {
+            this.compareList[i] = localty;
+        }
+    };
+    CompareListService.prototype.deleteFromList = function (localty) {
+        var index = this.compareList.indexOf(localty, 0);
+        if (index > -1) {
+            this.compareList.splice(index, 1);
+        }
+    };
+    CompareListService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], CompareListService);
+    return CompareListService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/population.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PopulationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("./node_modules/rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var PopulationService = /** @class */ (function () {
+    function PopulationService(http) {
+        this.http = http;
+    }
+    PopulationService.prototype.getPopulation = function (selected) {
+        return this.http.get('http://localhost:3000/population/' + selected)
+            .map(function (data) {
+            for (var _i = 0, _a = data.obj; _i < _a.length; _i++) {
+                var d = _a[_i];
+                console.log(d.name);
+            }
+            return data;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
+    };
+    PopulationService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], PopulationService);
+    return PopulationService;
 }());
 
 

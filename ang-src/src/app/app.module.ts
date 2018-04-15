@@ -10,8 +10,9 @@ import { ExploreComponent } from './explore/explore.component';
 import { SearchComponent } from './search/search.component';
 import { routing } from './app.routing';
 import { CompareComponent } from './compare/compare.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -3,15 +3,16 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const explore = require('./controllers/explore');
-
-
+const mongoose = require('mongoose');
+const populationRoutes = require('./controllers/population');
 //Declaring Port
 const port = 3000;
 
 //Initialize our app variable
 const app = express();
 
+//Connect to database
+mongoose.connect('mongodb://bandidotkom:cukivagyok19771023@ds255455.mlab.com:55455/berlo');
 //Middleware for CORS
 app.use(cors());
 
@@ -23,18 +24,14 @@ app.use(bodyParser.json());
 
 /*express.static is a built in middleware function to serve static files.
  We are telling express server public folder is the place to look for the static files
-
 */
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/population', populationRoutes);
+app.get('/', (req,res) => {
+   res.send("Invalid page");
+})
 
-//app.get('/', (req,res) => {
-//    res.send("Invalid page");
-//})
-
-
-//Routing all HTTP requests to /explore to explore controller
-//app.use('/explore',explore);
 
 
 //Listen to port 3000

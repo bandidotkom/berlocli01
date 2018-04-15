@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PopulationService} from "../services/population.service";
+import {CompareListService} from "../services/compare-list.service";
 
 @Component({
   selector: 'app-compare',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompareComponent implements OnInit {
 
-  constructor() { }
+  constructor(private compareListService: CompareListService, private populationService: PopulationService) { }
 
   ngOnInit() {
+    const cList = this.compareListService.getList();
+    for (const loc of cList){
+      this.populationService.getPopulation(loc)
+        .subscribe(
+          (population: any) => {console.log(population)}
+        );
+    }
   }
 
 

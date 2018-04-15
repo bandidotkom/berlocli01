@@ -4,7 +4,8 @@
     <p>Please select a localty by clicking the map.</p>
     <p>Your selection: {{selected}}</p>
     <button *ngIf="isSelected()" class="btn-primary"(click)="addToCompareList()">add to compare list</button>
-
+    <br>
+    <button *ngIf="isSelected()" class="btn-primary"(click)="showFacts()">facts</button>
   </div>
   <div class="col-md-5">
     <app-map (onSelected)="onSelected($event)"></app-map>
