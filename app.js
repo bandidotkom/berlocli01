@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const populationRoutes = require('./controllers/population');
+const activityRoutes = require('./controllers/activity');
 //Declaring Port
 const port = 3000;
 
@@ -27,6 +28,8 @@ app.use(bodyParser.json());
 */
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routes
+app.use('/activities', activityRoutes);
 app.use('/population', populationRoutes);
 app.get('/', (req,res) => {
    res.send("Invalid page");

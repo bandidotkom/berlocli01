@@ -39,12 +39,14 @@ module.exports = "<router-outlet></router-outlet>\n"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_activity_service__ = __webpack_require__("./src/app/services/activity.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -57,7 +59,7 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */], __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */]]
         })
     ], AppComponent);
     return AppComponent;
@@ -243,7 +245,7 @@ module.exports = "#exploremain {\r\n  height: 600px;\r\n}\r\n"
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-7\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">facts</button>\n  </div>\n  <div class=\"col-md-5\">\n    <app-map (onSelected)=\"onSelected($event)\"></app-map>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-7\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n  </div>\n  <div class=\"col-md-5\">\n    <app-map (onSelected)=\"onSelected($event)\"></app-map>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -255,6 +257,7 @@ module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_activity_service__ = __webpack_require__("./src/app/services/activity.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -267,10 +270,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ExploreComponent = /** @class */ (function () {
-    function ExploreComponent(compareListService, populationService) {
+    function ExploreComponent(compareListService, populationService, activityService) {
         this.compareListService = compareListService;
         this.populationService = populationService;
+        this.activityService = activityService;
     }
     ExploreComponent.prototype.ngOnInit = function () {
     };
@@ -287,6 +292,10 @@ var ExploreComponent = /** @class */ (function () {
         this.populationService.getPopulation(this.selected)
             .subscribe(function (population) { console.log(population); });
     };
+    ExploreComponent.prototype.showActivities = function () {
+        this.activityService.getActivities(this.selected)
+            .subscribe(function (activities) { console.log(activities); });
+    };
     ExploreComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-explore',
@@ -294,7 +303,8 @@ var ExploreComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/explore/explore.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */],
-            __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */]])
+            __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */]])
     ], ExploreComponent);
     return ExploreComponent;
 }());
@@ -516,6 +526,55 @@ var SearchComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], SearchComponent);
     return SearchComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/activity.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("./node_modules/rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ActivityService = /** @class */ (function () {
+    function ActivityService(http) {
+        this.http = http;
+    }
+    ActivityService.prototype.getActivities = function (selected) {
+        return this.http.get('http://localhost:3000/activities/' + selected)
+            .map(function (data) {
+            for (var _i = 0, _a = data.obj; _i < _a.length; _i++) {
+                var d = _a[_i];
+                console.log(d);
+            }
+            return data;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
+    };
+    ActivityService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], ActivityService);
+    return ActivityService;
 }());
 
 

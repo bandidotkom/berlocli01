@@ -5,7 +5,9 @@
     <p>Your selection: {{selected}}</p>
     <button *ngIf="isSelected()" class="btn-primary"(click)="addToCompareList()">add to compare list</button>
     <br>
-    <button *ngIf="isSelected()" class="btn-primary"(click)="showFacts()">facts</button>
+    <button *ngIf="isSelected()" class="btn-primary"(click)="showFacts()">show facts</button>
+    <br>
+    <button *ngIf="isSelected()" class="btn-primary"(click)="showActivities()">show activities</button>
   </div>
   <div class="col-md-5">
     <app-map (onSelected)="onSelected($event)"></app-map>

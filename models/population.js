@@ -12,4 +12,4 @@ var schema = new Schema({
   }]
 });
 var collection = 'population'
-module.exports = mongoose.model('population', schema, collection);
+module.exports = mongoose.model('Population', schema, collection);
