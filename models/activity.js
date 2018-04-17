@@ -5,8 +5,8 @@ var schema = new Schema({
   _id: Schema.Types.ObjectId,
   category: String,
   venue: String,
-  loc: [],
-  checkins: []
+  loc: [Number],
+  checkins: [String]
 });
 var collection = 'activities';
 module.exports = mongoose.model('Activity', schema, collection);
