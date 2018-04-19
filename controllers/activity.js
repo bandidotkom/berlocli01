@@ -13,7 +13,6 @@ router.get('/:selected',(req,res) => {
           error: err
         });
       }
-      console.log(docs[0].checkins);
       res.status(200).json({message: 'Success', obj: docs[0].checkins});
     });
 });

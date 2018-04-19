@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const imageRoutes = require('./controllers/images');
 const populationRoutes = require('./controllers/population');
 const activityRoutes = require('./controllers/activity');
 //Declaring Port
@@ -29,6 +30,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
+app.use('/images', imageRoutes);
 app.use('/activities', activityRoutes);
 app.use('/population', populationRoutes);
 app.get('/', (req,res) => {

@@ -8,6 +8,8 @@
     <button *ngIf="isSelected()" class="btn-primary"(click)="showFacts()">show facts</button>
     <br>
     <button *ngIf="isSelected()" class="btn-primary"(click)="showActivities()">show activities</button>
+    <br>
+    <button *ngIf="isSelected()" class="btn-primary"(click)="showImages()">show images</button>
   </div>
   <div class="col-md-5">
     <app-map (onSelected)="onSelected($event)"></app-map>

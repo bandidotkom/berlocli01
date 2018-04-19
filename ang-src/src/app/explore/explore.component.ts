@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CompareListService} from "../services/compare-list.service";
 import {PopulationService} from "../services/population.service";
 import {ActivityService} from "../services/activity.service";
+import {ImageService} from "../services/image.service";
 
 @Component({
   selector: 'app-explore',
@@ -12,7 +13,8 @@ export class ExploreComponent implements OnInit {
   selected: string;
   constructor(private compareListService: CompareListService,
               private populationService: PopulationService,
-              private activityService: ActivityService) { }
+              private activityService: ActivityService,
+              private imageService: ImageService) { }
 
   ngOnInit() {
 
@@ -38,6 +40,13 @@ export class ExploreComponent implements OnInit {
     this.activityService.getActivities(this.selected)
       .subscribe(
         (activities: any) => {console.log(activities)}
+      );
+  }
+
+  showImages() {
+    this.imageService.getImages(this.selected)
+      .subscribe(
+        (images: any) => {console.log(images)}
       );
   }
 
