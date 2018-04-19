@@ -21,8 +21,7 @@ router.get('/:selected',(req,res) => {
     console.log("searching for photos of " + req.params.selected);
     flickr.photos.search({
       text: req.params.selected,
-      accuracy: 11,
-      woe_id: 	638242
+      tags: ["Berlin"]
     }, function(err, result) {
       if(err){
         return res.status(500).json({
