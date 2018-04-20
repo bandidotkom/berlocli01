@@ -12,6 +12,9 @@ import { routing } from './app.routing';
 import { CompareComponent } from './compare/compare.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
+import { ImagesComponent } from './images/images.component';
+import { FactsComponent } from './facts/facts.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { HeaderComponent } from './header/header.component';
     ExploreComponent,
     SearchComponent,
     CompareComponent,
-    HeaderComponent
+    HeaderComponent,
+    ImagesComponent,
+    FactsComponent,
+    ActivitiesComponent
   ],
   imports: [
     BrowserModule,

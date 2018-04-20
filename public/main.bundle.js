@@ -17,6 +17,56 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/activities/activities.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/activities/activities.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  activities works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/activities/activities.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivitiesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ActivitiesComponent = /** @class */ (function () {
+    function ActivitiesComponent() {
+    }
+    ActivitiesComponent.prototype.ngOnInit = function () {
+    };
+    ActivitiesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-activities',
+            template: __webpack_require__("./src/app/activities/activities.component.html"),
+            styles: [__webpack_require__("./src/app/activities/activities.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ActivitiesComponent);
+    return ActivitiesComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
@@ -88,12 +138,18 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__compare_compare_component__ = __webpack_require__("./src/app/compare/compare.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__images_images_component__ = __webpack_require__("./src/app/images/images.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__facts_facts_component__ = __webpack_require__("./src/app/facts/facts.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__activities_activities_component__ = __webpack_require__("./src/app/activities/activities.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -118,7 +174,10 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__explore_explore_component__["a" /* ExploreComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__search_search_component__["a" /* SearchComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__compare_compare_component__["a" /* CompareComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__header_header_component__["a" /* HeaderComponent */]
+                __WEBPACK_IMPORTED_MODULE_11__header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__images_images_component__["a" /* ImagesComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__facts_facts_component__["a" /* FactsComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__activities_activities_component__["a" /* ActivitiesComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -240,14 +299,14 @@ var CompareComponent = /** @class */ (function () {
 /***/ "./src/app/explore/explore.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#exploremain {\r\n  height: 600px;\r\n}\r\n"
+module.exports = "#exploremain {\r\n  height: 840px;\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-7\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n  </div>\n  <div class=\"col-md-5\">\n    <app-map (onSelected)=\"onSelected($event)\"></app-map>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\"></app-activities>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -283,6 +342,7 @@ var ExploreComponent = /** @class */ (function () {
         this.imageService = imageService;
     }
     ExploreComponent.prototype.ngOnInit = function () {
+        this.embeddedComp = 1;
     };
     ExploreComponent.prototype.addToCompareList = function () {
         this.compareListService.addToList(this.selected);
@@ -293,17 +353,27 @@ var ExploreComponent = /** @class */ (function () {
     ExploreComponent.prototype.isSelected = function () {
         return this.selected != undefined;
     };
+    ExploreComponent.prototype.showImages = function () {
+        var _this = this;
+        this.embeddedComp = 2;
+        this.imageService.getImages(this.selected)
+            .subscribe(function (images) { _this.urls = images; });
+    };
     ExploreComponent.prototype.showFacts = function () {
+        this.embeddedComp = 3;
         this.populationService.getPopulation(this.selected)
             .subscribe(function (population) { console.log(population); });
     };
     ExploreComponent.prototype.showActivities = function () {
+        this.embeddedComp = 4;
         this.activityService.getActivities(this.selected)
             .subscribe(function (activities) { console.log(activities); });
     };
-    ExploreComponent.prototype.showImages = function () {
-        this.imageService.getImages(this.selected)
-            .subscribe(function (images) { console.log(images); });
+    ExploreComponent.prototype.getEmbeddedComponent = function () {
+        return this.embeddedComp;
+    };
+    ExploreComponent.prototype.backToMap = function () {
+        this.embeddedComp = 1;
     };
     ExploreComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -317,6 +387,56 @@ var ExploreComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */]])
     ], ExploreComponent);
     return ExploreComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/facts/facts.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/facts/facts.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  facts works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/facts/facts.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FactsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FactsComponent = /** @class */ (function () {
+    function FactsComponent() {
+    }
+    FactsComponent.prototype.ngOnInit = function () {
+    };
+    FactsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-facts',
+            template: __webpack_require__("./src/app/facts/facts.component.html"),
+            styles: [__webpack_require__("./src/app/facts/facts.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FactsComponent);
+    return FactsComponent;
 }());
 
 
@@ -383,6 +503,60 @@ var HeaderComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */]])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/images/images.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/images/images.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- Page Content -->\n<div class=\"container\">\n\n  <div class=\"row text-center text-lg-left\">\n\n    <div *ngFor=\"let url of urls\" class=\"col-lg-3 col-md-4 col-xs-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img class=\"img-fluid img-thumbnail\" src=\"{{url}}\" alt=\"\">\n      </a>\n    </div>\n\n  </div>\n\n</div>\n<!-- /.container -->\n\n"
+
+/***/ }),
+
+/***/ "./src/app/images/images.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImagesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ImagesComponent = /** @class */ (function () {
+    function ImagesComponent() {
+    }
+    ImagesComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Array)
+    ], ImagesComponent.prototype, "urls", void 0);
+    ImagesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-images',
+            template: __webpack_require__("./src/app/images/images.component.html"),
+            styles: [__webpack_require__("./src/app/images/images.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ImagesComponent);
+    return ImagesComponent;
 }());
 
 

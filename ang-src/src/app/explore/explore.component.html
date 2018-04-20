@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div id="exploremain" class="row">
-  <div class="col-md-7">
+  <div class="col-md-4">
     <p>Please select a localty by clicking the map.</p>
     <p>Your selection: {{selected}}</p>
     <button *ngIf="isSelected()" class="btn-primary"(click)="addToCompareList()">add to compare list</button>
@@ -10,9 +10,14 @@
     <button *ngIf="isSelected()" class="btn-primary"(click)="showActivities()">show activities</button>
     <br>
     <button *ngIf="isSelected()" class="btn-primary"(click)="showImages()">show images</button>
+    <br>
+    <button *ngIf="getEmbeddedComponent()>1" class="btn-primary"(click)="backToMap()">back to map</button>
   </div>
-  <div class="col-md-5">
-    <app-map (onSelected)="onSelected($event)"></app-map>
+  <div class="col-md-8">
+    <app-map *ngIf="getEmbeddedComponent()==1" (onSelected)="onSelected($event)"></app-map>
+    <app-images *ngIf="getEmbeddedComponent()==2" [urls]="urls"></app-images>
+    <app-facts *ngIf="getEmbeddedComponent()==3"></app-facts>
+    <app-activities *ngIf="getEmbeddedComponent()==4"></app-activities>
   </div>
 </div>
 
