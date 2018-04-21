@@ -16,7 +16,7 @@
   <div class="col-md-8">
     <app-map *ngIf="getEmbeddedComponent()==1" (onSelected)="onSelected($event)"></app-map>
     <app-images *ngIf="getEmbeddedComponent()==2" [urls]="urls"></app-images>
-    <app-facts *ngIf="getEmbeddedComponent()==3"></app-facts>
+    <app-facts *ngIf="getEmbeddedComponent()==3" [genderFacts]="genderFacts" [natFacts]="natFacts" [ageFacts]="ageFacts"></app-facts>
     <app-activities *ngIf="getEmbeddedComponent()==4"></app-activities>
   </div>
 </div>

@@ -7,7 +7,6 @@ router.get('/:selected',(req,res) => {
   locality.find({"properties.Name": req.params.selected})
     .exec(function(err, docs){
       if(err) {
-        console.log("huhu");
         return res.status(500).json({
           title: 'An error occured',
           error: err

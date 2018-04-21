@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from './app.component';
 
 import { MapComponent } from './map/map.component';
@@ -33,7 +34,9 @@ import { ActivitiesComponent } from './activities/activities.component';
     BrowserModule,
     HttpClientModule,
     LeafletModule.forRoot(),
-    routing
+    routing,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

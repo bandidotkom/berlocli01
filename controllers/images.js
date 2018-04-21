@@ -29,7 +29,6 @@ router.get('/:selected',(req,res) => {
           error: err
         });
       }
-      console.log(result.photos.photo);
       res.status(200).json({message: 'Success', obj: result.photos.photo});
     });
 

@@ -13,6 +13,9 @@ export class ExploreComponent implements OnInit {
   selected: string;
   embeddedComp: number;
   urls: string[];
+  genderFacts: any;
+  natFacts: any;
+  ageFacts: any;
   constructor(private compareListService: CompareListService,
               private populationService: PopulationService,
               private activityService: ActivityService,
@@ -24,8 +27,8 @@ export class ExploreComponent implements OnInit {
   addToCompareList(){
     this.compareListService.addToList(this.selected);
   }
-  onSelected(localty: string) {
-    this.selected = localty;
+  onSelected(locality: string) {
+    this.selected = locality;
   }
   isSelected() {
     return this.selected!=undefined;
@@ -43,7 +46,13 @@ export class ExploreComponent implements OnInit {
     this.embeddedComp = 3;
     this.populationService.getPopulation(this.selected)
       .subscribe(
-        (population: any) => {console.log(population)}
+        (facts: any) => {
+          this.genderFacts = facts.gender;
+          console.log(this.genderFacts);
+          this.natFacts = facts.nationality;
+          console.log(this.natFacts);
+          this.ageFacts = facts.age;
+          console.log(this.ageFacts);}
       );
   }
 

@@ -1,3 +1,51 @@
-<p>
-  facts works!
-</p>
+
+<div class="row" style="height: 390px;width:80%">
+  <div class="col-md-6">
+  <ngx-charts-pie-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="genderFacts"
+    [legend]="showLegend"
+    [explodeSlices]="explodeSlices"
+    [labels]="showLabels"
+    [doughnut]="doughnut"
+    [gradient]="gradient"
+    (select)="onSelect($event)">
+  </ngx-charts-pie-chart>
+  </div>
+  <div class="col-md-6">
+  <ngx-charts-pie-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="natFacts"
+    [legend]="showLegend"
+    [explodeSlices]="explodeSlices"
+    [labels]="showLabels"
+    [doughnut]="doughnut"
+    [gradient]="gradient"
+    (select)="onSelect($event)">
+  </ngx-charts-pie-chart>
+  </div>
+</div>
+<div class="row" style="height: 390px;">
+  <div class="col-md-3">
+    </div>
+  <div class="col-md-6">
+<ngx-charts-bar-vertical
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="ageFacts"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
+</div>
+  <div class="col-md-3">
+  </div>
+</div>

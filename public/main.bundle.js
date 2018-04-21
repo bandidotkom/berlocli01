@@ -53,7 +53,7 @@ var ActivitiesComponent = /** @class */ (function () {
     ActivitiesComponent.prototype.ngOnInit = function () {
     };
     ActivitiesComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-activities',
             template: __webpack_require__("./src/app/activities/activities.component.html"),
             styles: [__webpack_require__("./src/app/activities/activities.component.css")]
@@ -107,7 +107,7 @@ var AppComponent = /** @class */ (function () {
         this.title = "BERLO";
     }
     AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")],
@@ -129,18 +129,21 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__asymmetrik_ngx_leaflet__ = __webpack_require__("./node_modules/@asymmetrik/ngx-leaflet/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__map_map_component__ = __webpack_require__("./src/app/map/map.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__welcome_welcome_component__ = __webpack_require__("./src/app/welcome/welcome.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__explore_explore_component__ = __webpack_require__("./src/app/explore/explore.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__search_search_component__ = __webpack_require__("./src/app/search/search.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_routing__ = __webpack_require__("./src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__compare_compare_component__ = __webpack_require__("./src/app/compare/compare.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__images_images_component__ = __webpack_require__("./src/app/images/images.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__facts_facts_component__ = __webpack_require__("./src/app/facts/facts.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__activities_activities_component__ = __webpack_require__("./src/app/activities/activities.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__swimlane_ngx_charts__ = __webpack_require__("./node_modules/@swimlane/ngx-charts/release/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__swimlane_ngx_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__swimlane_ngx_charts__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_map_component__ = __webpack_require__("./src/app/map/map.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__welcome_welcome_component__ = __webpack_require__("./src/app/welcome/welcome.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__explore_explore_component__ = __webpack_require__("./src/app/explore/explore.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__search_search_component__ = __webpack_require__("./src/app/search/search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing__ = __webpack_require__("./src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__compare_compare_component__ = __webpack_require__("./src/app/compare/compare.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__images_images_component__ = __webpack_require__("./src/app/images/images.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__facts_facts_component__ = __webpack_require__("./src/app/facts/facts.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__activities_activities_component__ = __webpack_require__("./src/app/activities/activities.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -162,31 +165,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__map_map_component__["a" /* MapComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__welcome_welcome_component__["a" /* WelcomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__explore_explore_component__["a" /* ExploreComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__search_search_component__["a" /* SearchComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__compare_compare_component__["a" /* CompareComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__images_images_component__["a" /* ImagesComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__facts_facts_component__["a" /* FactsComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__activities_activities_component__["a" /* ActivitiesComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__map_map_component__["a" /* MapComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__welcome_welcome_component__["a" /* WelcomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__explore_explore_component__["a" /* ExploreComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__search_search_component__["a" /* SearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__compare_compare_component__["a" /* CompareComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__images_images_component__["a" /* ImagesComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__facts_facts_component__["a" /* FactsComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__activities_activities_component__["a" /* ActivitiesComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["BrowserModule"],
+                __WEBPACK_IMPORTED_MODULE_12__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2__asymmetrik_ngx_leaflet__["a" /* LeafletModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_8__app_routing__["a" /* routing */]
+                __WEBPACK_IMPORTED_MODULE_10__app_routing__["a" /* routing */],
+                __WEBPACK_IMPORTED_MODULE_3__swimlane_ngx_charts__["NgxChartsModule"],
+                __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */]
             ],
             providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -282,7 +289,7 @@ var CompareComponent = /** @class */ (function () {
         }
     };
     CompareComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-compare',
             template: __webpack_require__("./src/app/compare/compare.component.html"),
             styles: [__webpack_require__("./src/app/compare/compare.component.css")]
@@ -306,7 +313,7 @@ module.exports = "#exploremain {\r\n  height: 840px;\r\n}\r\n"
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\"></app-activities>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\"></app-activities>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -347,8 +354,8 @@ var ExploreComponent = /** @class */ (function () {
     ExploreComponent.prototype.addToCompareList = function () {
         this.compareListService.addToList(this.selected);
     };
-    ExploreComponent.prototype.onSelected = function (localty) {
-        this.selected = localty;
+    ExploreComponent.prototype.onSelected = function (locality) {
+        this.selected = locality;
     };
     ExploreComponent.prototype.isSelected = function () {
         return this.selected != undefined;
@@ -360,9 +367,17 @@ var ExploreComponent = /** @class */ (function () {
             .subscribe(function (images) { _this.urls = images; });
     };
     ExploreComponent.prototype.showFacts = function () {
+        var _this = this;
         this.embeddedComp = 3;
         this.populationService.getPopulation(this.selected)
-            .subscribe(function (population) { console.log(population); });
+            .subscribe(function (facts) {
+            _this.genderFacts = facts.gender;
+            console.log(_this.genderFacts);
+            _this.natFacts = facts.nationality;
+            console.log(_this.natFacts);
+            _this.ageFacts = facts.age;
+            console.log(_this.ageFacts);
+        });
     };
     ExploreComponent.prototype.showActivities = function () {
         this.embeddedComp = 4;
@@ -376,7 +391,7 @@ var ExploreComponent = /** @class */ (function () {
         this.embeddedComp = 1;
     };
     ExploreComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-explore',
             template: __webpack_require__("./src/app/explore/explore.component.html"),
             styles: [__webpack_require__("./src/app/explore/explore.component.css")]
@@ -403,7 +418,7 @@ module.exports = ""
 /***/ "./src/app/facts/facts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  facts works!\n</p>\n"
+module.exports = "\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-6\">\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"genderFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-6\">\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"natFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n</div>\n<div class=\"row\" style=\"height: 390px;\">\n  <div class=\"col-md-3\">\n    </div>\n  <div class=\"col-md-6\">\n<ngx-charts-bar-vertical\n  [view]=\"view\"\n  [scheme]=\"colorScheme\"\n  [results]=\"ageFacts\"\n  [gradient]=\"gradient\"\n  [xAxis]=\"showXAxis\"\n  [yAxis]=\"showYAxis\"\n  [legend]=\"showLegend\"\n  [showXAxisLabel]=\"showXAxisLabel\"\n  [showYAxisLabel]=\"showYAxisLabel\"\n  [xAxisLabel]=\"xAxisLabel\"\n  [yAxisLabel]=\"yAxisLabel\"\n  (select)=\"onSelect($event)\">\n</ngx-charts-bar-vertical>\n</div>\n  <div class=\"col-md-3\">\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -425,16 +440,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var FactsComponent = /** @class */ (function () {
     function FactsComponent() {
+        this.showLegend = true;
+        this.colorScheme = {
+            domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
+        };
+        // pie options
+        this.showLabels = true;
+        this.explodeSlices = false;
+        this.doughnut = false;
+        // bar chart options
+        this.showXAxis = true;
+        this.showYAxis = true;
+        this.gradient = false;
+        this.showXAxisLabel = true;
+        this.xAxisLabel = 'Age';
+        this.showYAxisLabel = true;
+        this.yAxisLabel = 'Population';
     }
+    FactsComponent.prototype.onSelect = function (event) {
+        console.log(event);
+    };
     FactsComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], FactsComponent.prototype, "genderFacts", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], FactsComponent.prototype, "natFacts", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], FactsComponent.prototype, "ageFacts", void 0);
     FactsComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-facts',
             template: __webpack_require__("./src/app/facts/facts.component.html"),
             styles: [__webpack_require__("./src/app/facts/facts.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
+        })
     ], FactsComponent);
     return FactsComponent;
 }());
@@ -495,7 +540,7 @@ var HeaderComponent = /** @class */ (function () {
         }
     };
     HeaderComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-header',
             template: __webpack_require__("./src/app/header/header.component.html"),
             styles: [__webpack_require__("./src/app/header/header.component.css")]
@@ -545,11 +590,11 @@ var ImagesComponent = /** @class */ (function () {
     ImagesComponent.prototype.ngOnInit = function () {
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Array)
     ], ImagesComponent.prototype, "urls", void 0);
     ImagesComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-images',
             template: __webpack_require__("./src/app/images/images.component.html"),
             styles: [__webpack_require__("./src/app/images/images.component.css")]
@@ -601,7 +646,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var MapComponent = /** @class */ (function () {
     function MapComponent(http) {
         this.http = http;
-        this.onSelected = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        this.onSelected = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     MapComponent.prototype.ngOnInit = function () {
         var baseOSMLayer = __WEBPACK_IMPORTED_MODULE_2_leaflet__["tileLayer"]('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -648,11 +693,11 @@ var MapComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
     ], MapComponent.prototype, "onSelected", void 0);
     MapComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-map',
             template: __webpack_require__("./src/app/map/map.component.html"),
             styles: [__webpack_require__("./src/app/map/map.component.css")]
@@ -702,7 +747,7 @@ var SearchComponent = /** @class */ (function () {
     SearchComponent.prototype.ngOnInit = function () {
     };
     SearchComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-search',
             template: __webpack_require__("./src/app/search/search.component.html"),
             styles: [__webpack_require__("./src/app/search/search.component.css")]
@@ -755,7 +800,7 @@ var ActivityService = /** @class */ (function () {
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
     };
     ActivityService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], ActivityService);
     return ActivityService;
@@ -810,7 +855,7 @@ var CompareListService = /** @class */ (function () {
         }
     };
     CompareListService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [])
     ], CompareListService);
     return CompareListService;
@@ -860,7 +905,7 @@ var ImageService = /** @class */ (function () {
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
     };
     ImageService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], ImageService);
     return ImageService;
@@ -899,17 +944,123 @@ var PopulationService = /** @class */ (function () {
     }
     PopulationService.prototype.getPopulation = function (selected) {
         return this.http.get('http://localhost:3000/population/' + selected)
-            .map(function (data) {
-            for (var _i = 0, _a = data.obj; _i < _a.length; _i++) {
-                var d = _a[_i];
-                console.log(d.name);
+            .map(function (population) {
+            var rows = population.obj;
+            var results = {
+                gender: [
+                    { name: 'male', value: 0 },
+                    { name: 'female', value: 0 }
+                ],
+                nationality: [
+                    { name: 'German', value: 0 },
+                    { name: 'Foreigner', value: 0 }
+                ],
+                age: [
+                    { name: '0-5', value: 0 },
+                    { name: '5-10', value: 0 },
+                    { name: '10-15', value: 0 },
+                    { name: '15-20', value: 0 },
+                    { name: '20-25', value: 0 },
+                    { name: '25-30', value: 0 },
+                    { name: '30-35', value: 0 },
+                    { name: '35-40', value: 0 },
+                    { name: '40-45', value: 0 },
+                    { name: '45-50', value: 0 },
+                    { name: '50-55', value: 0 },
+                    { name: '55-60', value: 0 },
+                    { name: '60-65', value: 0 },
+                    { name: '65-70', value: 0 },
+                    { name: '70-75', value: 0 },
+                    { name: '75-80', value: 0 },
+                    { name: '80-85', value: 0 },
+                    { name: '85-90', value: 0 },
+                    { name: '90-95', value: 0 },
+                    { name: '95-', value: 0 },
+                ]
+            };
+            for (var _i = 0, rows_1 = rows; _i < rows_1.length; _i++) {
+                var row = rows_1[_i];
+                if (row.Geschl == 1) {
+                    results.gender[0].value += row.H;
+                }
+                else {
+                    results.gender[1].value += row.H;
+                }
+                if (row.Staatsangeh == "D") {
+                    results.nationality[0].value += row.H;
+                }
+                else {
+                    results.nationality[1].value += row.H;
+                }
+                if (row.Altersgr == "00_05") {
+                    results.age[0].value += row.H;
+                }
+                else if (row.Altersgr == "05_10") {
+                    results.age[1].value += row.H;
+                }
+                else if (row.Altersgr == "10_15") {
+                    results.age[2].value += row.H;
+                }
+                else if (row.Altersgr == "15_20") {
+                    results.age[3].value += row.H;
+                }
+                else if (row.Altersgr == "20_25") {
+                    results.age[4].value += row.H;
+                }
+                else if (row.Altersgr == "25_30") {
+                    results.age[5].value += row.H;
+                }
+                else if (row.Altersgr == "30_35") {
+                    results.age[6].value += row.H;
+                }
+                else if (row.Altersgr == "35_40") {
+                    results.age[7].value += row.H;
+                }
+                else if (row.Altersgr == "40_45") {
+                    results.age[8].value += row.H;
+                }
+                else if (row.Altersgr == "45_50") {
+                    results.age[9].value += row.H;
+                }
+                else if (row.Altersgr == "50_55") {
+                    results.age[10].value += row.H;
+                }
+                else if (row.Altersgr == "55_60") {
+                    results.age[11].value += row.H;
+                }
+                else if (row.Altersgr == "60_65") {
+                    results.age[12].value += row.H;
+                }
+                else if (row.Altersgr == "65_70") {
+                    results.age[13].value += row.H;
+                }
+                else if (row.Altersgr == "70_75") {
+                    results.age[14].value += row.H;
+                }
+                else if (row.Altersgr == "75_80") {
+                    results.age[15].value += row.H;
+                }
+                else if (row.Altersgr == "80_85") {
+                    results.age[16].value += row.H;
+                }
+                else if (row.Altersgr == "85_90") {
+                    results.age[17].value += row.H;
+                }
+                else if (row.Altersgr == "90_95") {
+                    results.age[18].value += row.H;
+                }
+                else if (row.Altersgr == "95_") {
+                    results.age[19].value += row.H;
+                }
             }
-            return data;
+            ;
+            //console.log(results);
+            return results;
         })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
     };
     PopulationService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], PopulationService);
     return PopulationService;
@@ -955,7 +1106,7 @@ var WelcomeComponent = /** @class */ (function () {
     WelcomeComponent.prototype.ngOnInit = function () {
     };
     WelcomeComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-welcome',
             template: __webpack_require__("./src/app/welcome/welcome.component.html"),
             styles: [__webpack_require__("./src/app/welcome/welcome.component.css")]
@@ -999,7 +1150,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });

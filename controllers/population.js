@@ -13,7 +13,8 @@ router.get('/:selected',(req,res) => {
           error: err
         });
       }
-      res.status(200).json({message: 'Success', obj: doc});
+      //console.log(doc[0].data);
+      res.status(200).json({message: 'Success', obj: doc[0].data});
     });
 });
 
