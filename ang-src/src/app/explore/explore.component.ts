@@ -16,6 +16,9 @@ export class ExploreComponent implements OnInit {
   genderFacts: any;
   natFacts: any;
   ageFacts: any;
+  wmActivities: any;
+  waActivities: any;
+  weActivities: any;
   constructor(private compareListService: CompareListService,
               private populationService: PopulationService,
               private activityService: ActivityService,
@@ -48,19 +51,23 @@ export class ExploreComponent implements OnInit {
       .subscribe(
         (facts: any) => {
           this.genderFacts = facts.gender;
-          console.log(this.genderFacts);
+          //console.log(this.genderFacts);
           this.natFacts = facts.nationality;
-          console.log(this.natFacts);
+          //console.log(this.natFacts);
           this.ageFacts = facts.age;
-          console.log(this.ageFacts);}
-      );
+          //console.log(this.ageFacts);
+        });
   }
 
   showActivities() {
     this.embeddedComp = 4;
     this.activityService.getActivities(this.selected)
       .subscribe(
-        (activities: any) => {console.log(activities)}
+        (activities: any) => {
+          this.wmActivities = activities.wm;
+          this.waActivities = activities.wa;
+          this.weActivities = activities.we;
+        }
       );
   }
 

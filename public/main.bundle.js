@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/activities/activities.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  activities works!\n</p>\n"
+module.exports = "<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-6\">\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-6\">\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n<div class=\"row\" style=\"height: 390px;\">\n  <div class=\"col-md-3\">\n  </div>\n  <div class=\"col-md-6\">\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-3\">\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -49,9 +49,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ActivitiesComponent = /** @class */ (function () {
     function ActivitiesComponent() {
+        this.showLegend = true;
+        this.colorScheme = {
+            domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
+        };
+        // pie options
+        this.showLabels = true;
+        this.explodeSlices = false;
+        this.doughnut = false;
     }
+    ActivitiesComponent.prototype.onSelect = function (event) {
+        console.log(event);
+    };
     ActivitiesComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ActivitiesComponent.prototype, "wmActivities", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ActivitiesComponent.prototype, "waActivities", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ActivitiesComponent.prototype, "weActivities", void 0);
     ActivitiesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-activities',
@@ -313,7 +336,7 @@ module.exports = "#exploremain {\r\n  height: 840px;\r\n}\r\n"
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\"></app-activities>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\" [wmActivities]=\"wmActivities\" [waActivities]=\"waActivities\" [weActivities]=\"weActivities\"></app-activities>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -372,17 +395,22 @@ var ExploreComponent = /** @class */ (function () {
         this.populationService.getPopulation(this.selected)
             .subscribe(function (facts) {
             _this.genderFacts = facts.gender;
-            console.log(_this.genderFacts);
+            //console.log(this.genderFacts);
             _this.natFacts = facts.nationality;
-            console.log(_this.natFacts);
+            //console.log(this.natFacts);
             _this.ageFacts = facts.age;
-            console.log(_this.ageFacts);
+            //console.log(this.ageFacts);
         });
     };
     ExploreComponent.prototype.showActivities = function () {
+        var _this = this;
         this.embeddedComp = 4;
         this.activityService.getActivities(this.selected)
-            .subscribe(function (activities) { console.log(activities); });
+            .subscribe(function (activities) {
+            _this.wmActivities = activities.wm;
+            _this.waActivities = activities.wa;
+            _this.weActivities = activities.we;
+        });
     };
     ExploreComponent.prototype.getEmbeddedComponent = function () {
         return this.embeddedComp;
@@ -791,11 +819,49 @@ var ActivityService = /** @class */ (function () {
     ActivityService.prototype.getActivities = function (selected) {
         return this.http.get('http://localhost:3000/activities/' + selected)
             .map(function (data) {
+            var result = {
+                wm: [],
+                wa: [],
+                we: []
+            };
+            var proresultCat = [];
+            var proresultCheckin = [];
             for (var _i = 0, _a = data.obj; _i < _a.length; _i++) {
                 var d = _a[_i];
-                console.log(d);
+                if (proresultCat.indexOf(d.category) > -1) {
+                    proresultCheckin[proresultCat.indexOf(d.category)].concat(d.checkins);
+                }
+                else {
+                    proresultCat.push(d.category);
+                    proresultCheckin.push(d.checkins);
+                }
             }
-            return data;
+            for (var i = 0; i < proresultCat.length; i++) {
+                var wmVal = 0;
+                var waVal = 0;
+                var weVal = 0;
+                for (var j = 0; j < proresultCheckin[i].length; j++) {
+                    if (proresultCheckin[i][j] == "WM") {
+                        wmVal += 1;
+                    }
+                    else if (proresultCheckin[i][j] == "WA") {
+                        waVal += 1;
+                    }
+                    else {
+                        weVal += 1;
+                    }
+                }
+                if (wmVal > 0) {
+                    result.wm.push({ name: proresultCat[i], value: wmVal });
+                }
+                else if (waVal > 0) {
+                    result.wa.push({ name: proresultCat[i], value: waVal });
+                }
+                else if (weVal > 0) {
+                    result.we.push({ name: proresultCat[i], value: weVal });
+                }
+            }
+            return result;
         })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
     };
