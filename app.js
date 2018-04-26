@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const imageRoutes = require('./controllers/images');
-const populationRoutes = require('./controllers/population');
+const factRoutes = require('./controllers/fact');
+const geofactRoutes = require('./controllers/geofact');
 const activityRoutes = require('./controllers/activity');
 //Declaring Port
 const port = 3000;
@@ -32,7 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes
 app.use('/images', imageRoutes);
 app.use('/activities', activityRoutes);
-app.use('/population', populationRoutes);
+app.use('/fact', factRoutes);
+app.use('/geofact', geofactRoutes);
 app.get('/', (req,res) => {
    res.send("Invalid page");
 })

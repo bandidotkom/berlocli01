@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CompareListService} from "../services/compare-list.service";
-import {PopulationService} from "../services/population.service";
+import {FactService} from "../services/fact.service";
 import {ActivityService} from "../services/activity.service";
 import {ImageService} from "../services/image.service";
+import {GeofactService} from "../services/geofact.service";
 
 @Component({
   selector: 'app-explore',
@@ -19,10 +20,14 @@ export class ExploreComponent implements OnInit {
   wmActivities: any;
   waActivities: any;
   weActivities: any;
+  area: string;
+  population: number;
+  density: number;
   constructor(private compareListService: CompareListService,
-              private populationService: PopulationService,
+              private factService: FactService,
               private activityService: ActivityService,
-              private imageService: ImageService) { }
+              private imageService: ImageService,
+              private geoFactService: GeofactService) { }
 
   ngOnInit() {
     this.embeddedComp = 1;
@@ -32,6 +37,15 @@ export class ExploreComponent implements OnInit {
   }
   onSelected(locality: string) {
     this.selected = locality;
+    this.geoFactService.getFacts(this.selected)
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.area = data.area;
+          this.population = data.population;
+          this.density = data.density;
+
+        });
   }
   isSelected() {
     return this.selected!=undefined;
@@ -47,7 +61,7 @@ export class ExploreComponent implements OnInit {
 
   showFacts() {
     this.embeddedComp = 3;
-    this.populationService.getPopulation(this.selected)
+    this.factService.getPopulation(this.selected)
       .subscribe(
         (facts: any) => {
           this.genderFacts = facts.gender;
@@ -58,15 +72,28 @@ export class ExploreComponent implements OnInit {
           //console.log(this.ageFacts);
         });
   }
+  compare(a, b) {
+    if (a.value > b.value)
+      return -1;
+    if (a.value < b.value)
+      return 1;
+    return 0;
+  }
 
   showActivities() {
     this.embeddedComp = 4;
     this.activityService.getActivities(this.selected)
       .subscribe(
         (activities: any) => {
-          this.wmActivities = activities.wm;
-          this.waActivities = activities.wa;
-          this.weActivities = activities.we;
+          if (activities.wm.length>12) {
+            this.wmActivities = activities.wm.sort(this.compare).slice(0,12);
+          }else{this.wmActivities = activities.wm;}
+          if (activities.wa.length>12) {
+            this.waActivities = activities.wa.sort(this.compare).slice(0,12);
+          }else{this.waActivities = activities.wa;}
+          if (activities.we.length>12) {
+            this.weActivities = activities.we.sort(this.compare).slice(0,12);
+            }else{this.weActivities = activities.we;}
         }
       );
   }
@@ -78,4 +105,6 @@ export class ExploreComponent implements OnInit {
   backToMap(){
     this.embeddedComp = 1;
   }
+
+
 }

@@ -12,6 +12,11 @@
     <button *ngIf="isSelected()" class="btn-primary"(click)="showImages()">show images</button>
     <br>
     <button *ngIf="getEmbeddedComponent()>1" class="btn-primary"(click)="backToMap()">back to map</button>
+    <ul *ngIf="isSelected()">
+      <li>area: {{area}} sq. km</li>
+      <li>fact: {{population}}</li>
+      <li>density: {{density}}</li>
+    </ul>
   </div>
   <div class="col-md-8">
     <app-map *ngIf="getEmbeddedComponent()==1" (onSelected)="onSelected($event)"></app-map>

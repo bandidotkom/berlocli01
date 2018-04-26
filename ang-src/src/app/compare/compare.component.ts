@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PopulationService} from "../services/population.service";
+import {FactService} from "../services/fact.service";
 import {CompareListService} from "../services/compare-list.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {CompareListService} from "../services/compare-list.service";
 })
 export class CompareComponent implements OnInit {
 
-  constructor(private compareListService: CompareListService, private populationService: PopulationService) { }
+  constructor(private compareListService: CompareListService, private populationService: FactService) { }
 
   ngOnInit() {
     const cList = this.compareListService.getList();

@@ -111,15 +111,17 @@ module.exports = "<router-outlet></router-outlet>\n"
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_fact_service__ = __webpack_require__("./src/app/services/fact.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_activity_service__ = __webpack_require__("./src/app/services/activity.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_image_service__ = __webpack_require__("./src/app/services/image.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__ = __webpack_require__("./src/app/services/geofact.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -134,7 +136,7 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */], __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */], __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_fact_service__["a" /* FactService */], __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */], __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */], __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */]]
         })
     ], AppComponent);
     return AppComponent;
@@ -284,7 +286,7 @@ module.exports = "<app-header></app-header>\n<p>\n  compare works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompareComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_fact_service__ = __webpack_require__("./src/app/services/fact.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -317,7 +319,7 @@ var CompareComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/compare/compare.component.html"),
             styles: [__webpack_require__("./src/app/compare/compare.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_1__services_population_service__["a" /* PopulationService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_1__services_fact_service__["a" /* FactService */]])
     ], CompareComponent);
     return CompareComponent;
 }());
@@ -336,7 +338,7 @@ module.exports = "#exploremain {\r\n  height: 840px;\r\n}\r\n"
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\" [wmActivities]=\"wmActivities\" [waActivities]=\"waActivities\" [weActivities]=\"weActivities\"></app-activities>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n    <ul *ngIf=\"isSelected()\">\n      <li>area: {{area}} sq. km</li>\n      <li>fact: {{population}}</li>\n      <li>density: {{density}}</li>\n    </ul>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\" [wmActivities]=\"wmActivities\" [waActivities]=\"waActivities\" [weActivities]=\"weActivities\"></app-activities>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -347,9 +349,10 @@ module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExploreComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_population_service__ = __webpack_require__("./src/app/services/population.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_fact_service__ = __webpack_require__("./src/app/services/fact.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_activity_service__ = __webpack_require__("./src/app/services/activity.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_image_service__ = __webpack_require__("./src/app/services/image.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__ = __webpack_require__("./src/app/services/geofact.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -364,12 +367,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ExploreComponent = /** @class */ (function () {
-    function ExploreComponent(compareListService, populationService, activityService, imageService) {
+    function ExploreComponent(compareListService, factService, activityService, imageService, geoFactService) {
         this.compareListService = compareListService;
-        this.populationService = populationService;
+        this.factService = factService;
         this.activityService = activityService;
         this.imageService = imageService;
+        this.geoFactService = geoFactService;
     }
     ExploreComponent.prototype.ngOnInit = function () {
         this.embeddedComp = 1;
@@ -378,7 +383,15 @@ var ExploreComponent = /** @class */ (function () {
         this.compareListService.addToList(this.selected);
     };
     ExploreComponent.prototype.onSelected = function (locality) {
+        var _this = this;
         this.selected = locality;
+        this.geoFactService.getFacts(this.selected)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.area = data.area;
+            _this.population = data.population;
+            _this.density = data.density;
+        });
     };
     ExploreComponent.prototype.isSelected = function () {
         return this.selected != undefined;
@@ -392,7 +405,7 @@ var ExploreComponent = /** @class */ (function () {
     ExploreComponent.prototype.showFacts = function () {
         var _this = this;
         this.embeddedComp = 3;
-        this.populationService.getPopulation(this.selected)
+        this.factService.getPopulation(this.selected)
             .subscribe(function (facts) {
             _this.genderFacts = facts.gender;
             //console.log(this.genderFacts);
@@ -402,14 +415,36 @@ var ExploreComponent = /** @class */ (function () {
             //console.log(this.ageFacts);
         });
     };
+    ExploreComponent.prototype.compare = function (a, b) {
+        if (a.value > b.value)
+            return -1;
+        if (a.value < b.value)
+            return 1;
+        return 0;
+    };
     ExploreComponent.prototype.showActivities = function () {
         var _this = this;
         this.embeddedComp = 4;
         this.activityService.getActivities(this.selected)
             .subscribe(function (activities) {
-            _this.wmActivities = activities.wm;
-            _this.waActivities = activities.wa;
-            _this.weActivities = activities.we;
+            if (activities.wm.length > 12) {
+                _this.wmActivities = activities.wm.sort(_this.compare).slice(0, 12);
+            }
+            else {
+                _this.wmActivities = activities.wm;
+            }
+            if (activities.wa.length > 12) {
+                _this.waActivities = activities.wa.sort(_this.compare).slice(0, 12);
+            }
+            else {
+                _this.waActivities = activities.wa;
+            }
+            if (activities.we.length > 12) {
+                _this.weActivities = activities.we.sort(_this.compare).slice(0, 12);
+            }
+            else {
+                _this.weActivities = activities.we;
+            }
         });
     };
     ExploreComponent.prototype.getEmbeddedComponent = function () {
@@ -425,9 +460,10 @@ var ExploreComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/explore/explore.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */],
-            __WEBPACK_IMPORTED_MODULE_2__services_population_service__["a" /* PopulationService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_fact_service__["a" /* FactService */],
             __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */],
-            __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */]])
+            __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */]])
     ], ExploreComponent);
     return ExploreComponent;
 }());
@@ -931,11 +967,11 @@ var CompareListService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/services/image.service.ts":
+/***/ "./src/app/services/fact.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImageService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FactService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
@@ -954,62 +990,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ImageService = /** @class */ (function () {
-    function ImageService(http) {
+var FactService = /** @class */ (function () {
+    function FactService(http) {
         this.http = http;
     }
-    ImageService.prototype.getImages = function (selected) {
-        return this.http.get('http://localhost:3000/images/' + selected)
-            .map(function (data) {
-            var urls = [];
-            for (var _i = 0, _a = data.obj; _i < _a.length; _i++) {
-                var d = _a[_i];
-                urls.push("https://farm" + d.farm + ".staticflickr.com/" + d.server + "/" + d.id + "_" + d.secret + ".jpg");
-            }
-            return urls;
-        })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
-    };
-    ImageService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
-    ], ImageService);
-    return ImageService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/population.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PopulationService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("./node_modules/rxjs/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var PopulationService = /** @class */ (function () {
-    function PopulationService(http) {
-        this.http = http;
-    }
-    PopulationService.prototype.getPopulation = function (selected) {
-        return this.http.get('http://localhost:3000/population/' + selected)
+    FactService.prototype.getPopulation = function (selected) {
+        return this.http.get('http://localhost:3000/fact/' + selected)
             .map(function (population) {
             var rows = population.obj;
             var results = {
@@ -1125,11 +1111,104 @@ var PopulationService = /** @class */ (function () {
         })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
     };
-    PopulationService = __decorate([
+    FactService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
-    ], PopulationService);
-    return PopulationService;
+    ], FactService);
+    return FactService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/geofact.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeofactService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GeofactService = /** @class */ (function () {
+    function GeofactService(http) {
+        this.http = http;
+    }
+    GeofactService.prototype.getFacts = function (selected) {
+        return this.http.get('http://localhost:3000/geofact/' + selected)
+            .map(function (data) {
+            console.log(data);
+            return data.obj;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].throw(error.json()); });
+    };
+    GeofactService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], GeofactService);
+    return GeofactService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/image.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImageService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("./node_modules/rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ImageService = /** @class */ (function () {
+    function ImageService(http) {
+        this.http = http;
+    }
+    ImageService.prototype.getImages = function (selected) {
+        return this.http.get('http://localhost:3000/images/' + selected)
+            .map(function (data) {
+            var urls = [];
+            for (var _i = 0, _a = data.obj; _i < _a.length; _i++) {
+                var d = _a[_i];
+                urls.push("https://farm" + d.farm + ".staticflickr.com/" + d.server + "/" + d.id + "_" + d.secret + ".jpg");
+            }
+            return urls;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
+    };
+    ImageService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], ImageService);
+    return ImageService;
 }());
 
 
@@ -1146,7 +1225,7 @@ module.exports = ""
 /***/ "./src/app/welcome/welcome.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-4\">Welcome to BERLO!</h1>\n  <p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>\n  <hr class=\"my-4\">\n  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>\n  <p class=\"lead\">\n    <a routerLink=\"explore\" class=\"button\">Go to explore</a>\n    <a routerLink=\"search\" class=\"button\">Go to search</a>\n  </p>\n</div>\n\n"
+module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-4\">Welcome to BERLO!</h1>\n  <p class=\"lead\">This is a system for profiling the 96 localities of Berlin.</p>\n  <hr class=\"my-4\">\n  <p>You can simply explore facts, activities, and photos related to the localities or search for the best locality based on your own preferences.</p>\n  <p class=\"lead\">\n    <a routerLink=\"explore\" class=\"button\">Go to explore</a>\n    <a routerLink=\"search\" class=\"button\">Go to search</a>\n  </p>\n</div>\n\n"
 
 /***/ }),
 
