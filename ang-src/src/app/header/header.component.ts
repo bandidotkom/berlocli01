@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isDisabled() {
-    if (this.compareList.length>0){
+    if (this.compareList.length>1){
       return "nav-link";
     } else {
       return "nav-link disabled";

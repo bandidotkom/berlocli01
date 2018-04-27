@@ -276,7 +276,7 @@ module.exports = ""
 /***/ "./src/app/compare/compare.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<p>\n  compare works!\n</p>\n"
+module.exports = "<app-header></app-header>\n\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div *ngFor=\"let i of indexList\" class=\"col-md-4\">\n    <h2>{{cList[i]}}</h2>\n    <p>area: {{geoData[i].area}}</p>\n    <p>population: {{geoData[i].population}}</p>\n    <p>density: {{geoData[i].density}}</p>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"genderData[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"nationalityData[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-bar-vertical\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"ageData[i]\"\n      [gradient]=\"gradient\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-bar-vertical>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -288,6 +288,8 @@ module.exports = "<app-header></app-header>\n<p>\n  compare works!\n</p>\n"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_fact_service__ = __webpack_require__("./src/app/services/fact.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_geofact_service__ = __webpack_require__("./src/app/services/geofact.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_activity_service__ = __webpack_require__("./src/app/services/activity.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -300,17 +302,94 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var CompareComponent = /** @class */ (function () {
-    function CompareComponent(compareListService, populationService) {
+    function CompareComponent(compareListService, factService, geoService, activityService) {
         this.compareListService = compareListService;
-        this.populationService = populationService;
+        this.factService = factService;
+        this.geoService = geoService;
+        this.activityService = activityService;
+        this.cList = [];
+        this.genderData = [];
+        this.nationalityData = [];
+        this.ageData = [];
+        this.geoData = [];
+        this.wmActivities = [];
+        this.waActivities = [];
+        this.weActivities = [];
+        this.indexList = [];
+        this.showLegend = true;
+        this.colorScheme = {
+            domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
+        };
+        // pie options
+        this.showLabels = true;
+        this.explodeSlices = false;
+        this.doughnut = false;
+        // bar chart options
+        this.showXAxis = true;
+        this.showYAxis = true;
+        this.gradient = false;
+        this.showXAxisLabel = true;
+        this.xAxisLabel = 'Age';
+        this.showYAxisLabel = true;
+        this.yAxisLabel = 'Population';
     }
+    CompareComponent.prototype.onSelect = function (event) {
+        console.log(event);
+    };
+    CompareComponent.prototype.compare = function (a, b) {
+        if (a.value > b.value)
+            return -1;
+        if (a.value < b.value)
+            return 1;
+        return 0;
+    };
     CompareComponent.prototype.ngOnInit = function () {
-        var cList = this.compareListService.getList();
-        for (var _i = 0, cList_1 = cList; _i < cList_1.length; _i++) {
-            var loc = cList_1[_i];
-            this.populationService.getPopulation(loc)
-                .subscribe(function (population) { console.log(population); });
+        var _this = this;
+        this.cList = this.compareListService.getList();
+        var i = 0;
+        for (var _i = 0, _a = this.cList; _i < _a.length; _i++) {
+            var loc = _a[_i];
+            this.indexList.push(i);
+            i++;
+            this.factService.getPopulation(loc)
+                .subscribe(function (population) {
+                console.log(population);
+                _this.genderData.push(population.gender);
+                _this.nationalityData.push(population.nationality);
+                _this.ageData.push(population.age);
+            });
+        }
+        for (var _b = 0, _c = this.cList; _b < _c.length; _b++) {
+            var loc = _c[_b];
+            this.geoService.getFacts(loc)
+                .subscribe(function (geodata) { _this.geoData.push(geodata); });
+        }
+        for (var _d = 0, _e = this.cList; _d < _e.length; _d++) {
+            var loc = _e[_d];
+            this.activityService.getActivities(loc)
+                .subscribe(function (activities) {
+                if (activities.wm.length > 12) {
+                    _this.wmActivities.push(activities.wm.sort(_this.compare).slice(0, 12));
+                }
+                else {
+                    _this.wmActivities.push(activities.wm);
+                }
+                if (activities.wa.length > 12) {
+                    _this.waActivities.push(activities.wa.sort(_this.compare).slice(0, 12));
+                }
+                else {
+                    _this.waActivities.push(activities.wa);
+                }
+                if (activities.we.length > 12) {
+                    _this.weActivities.push(activities.we.sort(_this.compare).slice(0, 12));
+                }
+                else {
+                    _this.weActivities.push(activities.we);
+                }
+            });
         }
     };
     CompareComponent = __decorate([
@@ -319,7 +398,10 @@ var CompareComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/compare/compare.component.html"),
             styles: [__webpack_require__("./src/app/compare/compare.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_1__services_fact_service__["a" /* FactService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__["a" /* CompareListService */],
+            __WEBPACK_IMPORTED_MODULE_1__services_fact_service__["a" /* FactService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_geofact_service__["a" /* GeofactService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_activity_service__["a" /* ActivityService */]])
     ], CompareComponent);
     return CompareComponent;
 }());
@@ -387,7 +469,6 @@ var ExploreComponent = /** @class */ (function () {
         this.selected = locality;
         this.geoFactService.getFacts(this.selected)
             .subscribe(function (data) {
-            console.log(data);
             _this.area = data.area;
             _this.population = data.population;
             _this.density = data.density;
@@ -596,7 +677,7 @@ var HeaderComponent = /** @class */ (function () {
         this.compareListService.deleteFromList(localty);
     };
     HeaderComponent.prototype.isDisabled = function () {
-        if (this.compareList.length > 0) {
+        if (this.compareList.length > 1) {
             return "nav-link";
         }
         else {
@@ -938,13 +1019,13 @@ var CompareListService = /** @class */ (function () {
     CompareListService.prototype.addToList = function (localty) {
         var i = this.compareList.length;
         if (localty == undefined) {
-            alert("Please select a localty first.");
+            alert("Please select a locality first.");
         }
         else if (this.compareList.includes(localty)) {
             alert(localty + " was already added.");
         }
-        else if (i >= 5) {
-            alert("You can compare only 5 localties at maximum.");
+        else if (i >= 4) {
+            alert("You can compare only 3 localities at maximum.");
         }
         else {
             this.compareList[i] = localty;
@@ -1149,7 +1230,6 @@ var GeofactService = /** @class */ (function () {
     GeofactService.prototype.getFacts = function (selected) {
         return this.http.get('http://localhost:3000/geofact/' + selected)
             .map(function (data) {
-            console.log(data);
             return data.obj;
         })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].throw(error.json()); });

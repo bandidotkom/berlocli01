@@ -40,7 +40,6 @@ export class ExploreComponent implements OnInit {
     this.geoFactService.getFacts(this.selected)
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.area = data.area;
           this.population = data.population;
           this.density = data.density;
