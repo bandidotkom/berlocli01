@@ -17,7 +17,7 @@ export class CompareListService {
     else if (this.compareList.includes(localty)) {
       alert(localty + " was already added.");
     }
-    else if (i >= 4) {
+    else if (i >= 3) {
       alert("You can compare only 3 localities at maximum.");
     }
     else {

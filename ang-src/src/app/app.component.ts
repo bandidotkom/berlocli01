@@ -4,12 +4,13 @@ import {FactService} from "./services/fact.service";
 import {ActivityService} from "./services/activity.service";
 import {ImageService} from "./services/image.service";
 import {GeofactService} from "./services/geofact.service";
+import {ReputationService} from "./services/reputation.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [CompareListService, FactService, ActivityService, ImageService, GeofactService]
+  providers: [CompareListService, FactService, ActivityService, ImageService, GeofactService, ReputationService]
 })
 export class AppComponent {
   title = "BERLO";

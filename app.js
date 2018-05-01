@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const imageRoutes = require('./controllers/images');
 const factRoutes = require('./controllers/fact');
 const geofactRoutes = require('./controllers/geofact');
+const reputationRoutes = require('./controllers/reputation');
 const activityRoutes = require('./controllers/activity');
 //Declaring Port
 const port = 3000;
@@ -35,6 +36,7 @@ app.use('/images', imageRoutes);
 app.use('/activities', activityRoutes);
 app.use('/fact', factRoutes);
 app.use('/geofact', geofactRoutes);
+app.use('/reputation', reputationRoutes);
 app.get('/', (req,res) => {
    res.send("Invalid page");
 })

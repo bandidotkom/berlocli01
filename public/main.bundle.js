@@ -115,12 +115,14 @@ module.exports = "<router-outlet></router-outlet>\n"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_activity_service__ = __webpack_require__("./src/app/services/activity.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_image_service__ = __webpack_require__("./src/app/services/image.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__ = __webpack_require__("./src/app/services/geofact.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__ = __webpack_require__("./src/app/services/reputation.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -136,7 +138,7 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_fact_service__["a" /* FactService */], __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */], __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */], __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_fact_service__["a" /* FactService */], __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */], __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */], __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */], __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__["a" /* ReputationService */]]
         })
     ], AppComponent);
     return AppComponent;
@@ -169,12 +171,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__images_images_component__ = __webpack_require__("./src/app/images/images.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__facts_facts_component__ = __webpack_require__("./src/app/facts/facts.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__activities_activities_component__ = __webpack_require__("./src/app/activities/activities.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__reputation_reputation_component__ = __webpack_require__("./src/app/reputation/reputation.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -207,7 +211,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__header_header_component__["a" /* HeaderComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__images_images_component__["a" /* ImagesComponent */],
                 __WEBPACK_IMPORTED_MODULE_15__facts_facts_component__["a" /* FactsComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__activities_activities_component__["a" /* ActivitiesComponent */]
+                __WEBPACK_IMPORTED_MODULE_16__activities_activities_component__["a" /* ActivitiesComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__reputation_reputation_component__["a" /* ReputationComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["BrowserModule"],
@@ -420,7 +425,7 @@ module.exports = "#exploremain {\r\n  height: 840px;\r\n}\r\n"
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n    <ul *ngIf=\"isSelected()\">\n      <li>area: {{area}} sq. km</li>\n      <li>fact: {{population}}</li>\n      <li>density: {{density}}</li>\n    </ul>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\" [wmActivities]=\"wmActivities\" [waActivities]=\"waActivities\" [weActivities]=\"weActivities\"></app-activities>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showReputation()\">show reputation</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n    <ul *ngIf=\"isSelected()\">\n      <li>area: {{area}} sq. km</li>\n      <li>fact: {{population}}</li>\n      <li>density: {{density}}</li>\n    </ul>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\" [wmActivities]=\"wmActivities\" [waActivities]=\"waActivities\" [weActivities]=\"weActivities\"></app-activities>\n    <app-reputation *ngIf=\"getEmbeddedComponent()==5\" [reputation]=\"reputation\" [keywords]=\"keywords\"></app-reputation>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -435,6 +440,7 @@ module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_activity_service__ = __webpack_require__("./src/app/services/activity.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_image_service__ = __webpack_require__("./src/app/services/image.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__ = __webpack_require__("./src/app/services/geofact.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__ = __webpack_require__("./src/app/services/reputation.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -450,13 +456,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ExploreComponent = /** @class */ (function () {
-    function ExploreComponent(compareListService, factService, activityService, imageService, geoFactService) {
+    function ExploreComponent(compareListService, factService, activityService, imageService, geoFactService, reputationService) {
         this.compareListService = compareListService;
         this.factService = factService;
         this.activityService = activityService;
         this.imageService = imageService;
         this.geoFactService = geoFactService;
+        this.reputationService = reputationService;
     }
     ExploreComponent.prototype.ngOnInit = function () {
         this.embeddedComp = 1;
@@ -528,6 +536,17 @@ var ExploreComponent = /** @class */ (function () {
             }
         });
     };
+    ExploreComponent.prototype.showReputation = function () {
+        var _this = this;
+        this.embeddedComp = 5;
+        this.reputationService.getReputation(this.selected)
+            .subscribe(function (reputation) {
+            _this.reputation = reputation.summary;
+            //console.log(this.reputation);
+            _this.keywords = reputation.keywords;
+            //console.log(this.keywords)
+        });
+    };
     ExploreComponent.prototype.getEmbeddedComponent = function () {
         return this.embeddedComp;
     };
@@ -544,7 +563,8 @@ var ExploreComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_2__services_fact_service__["a" /* FactService */],
             __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */],
             __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */]])
+            __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__["a" /* ReputationService */]])
     ], ExploreComponent);
     return ExploreComponent;
 }());
@@ -856,6 +876,64 @@ var MapComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/reputation/reputation.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/reputation/reputation.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  {{reputation}}\n</p>\n<ul>\n  <li *ngFor=\"let k of keywords\">{{k}}</li>\n</ul>\n"
+
+/***/ }),
+
+/***/ "./src/app/reputation/reputation.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReputationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ReputationComponent = /** @class */ (function () {
+    function ReputationComponent() {
+    }
+    ReputationComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], ReputationComponent.prototype, "reputation", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], ReputationComponent.prototype, "keywords", void 0);
+    ReputationComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-reputation',
+            template: __webpack_require__("./src/app/reputation/reputation.component.html"),
+            styles: [__webpack_require__("./src/app/reputation/reputation.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ReputationComponent);
+    return ReputationComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/search/search.component.css":
 /***/ (function(module, exports) {
 
@@ -1024,7 +1102,7 @@ var CompareListService = /** @class */ (function () {
         else if (this.compareList.includes(localty)) {
             alert(localty + " was already added.");
         }
-        else if (i >= 4) {
+        else if (i >= 3) {
             alert("You can compare only 3 localities at maximum.");
         }
         else {
@@ -1289,6 +1367,48 @@ var ImageService = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], ImageService);
     return ImageService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/reputation.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReputationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ReputationService = /** @class */ (function () {
+    function ReputationService(http) {
+        this.http = http;
+    }
+    ReputationService.prototype.getReputation = function (selected) {
+        return this.http.get('http://localhost:3000/reputation/' + selected)
+            .map(function (data) {
+            return data.obj;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].throw(error.json()); });
+    };
+    ReputationService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], ReputationService);
+    return ReputationService;
 }());
 
 

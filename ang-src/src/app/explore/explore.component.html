@@ -9,6 +9,8 @@
     <br>
     <button *ngIf="isSelected()" class="btn-primary"(click)="showActivities()">show activities</button>
     <br>
+    <button *ngIf="isSelected()" class="btn-primary"(click)="showReputation()">show reputation</button>
+    <br>
     <button *ngIf="isSelected()" class="btn-primary"(click)="showImages()">show images</button>
     <br>
     <button *ngIf="getEmbeddedComponent()>1" class="btn-primary"(click)="backToMap()">back to map</button>
@@ -23,6 +25,7 @@
     <app-images *ngIf="getEmbeddedComponent()==2" [urls]="urls"></app-images>
     <app-facts *ngIf="getEmbeddedComponent()==3" [genderFacts]="genderFacts" [natFacts]="natFacts" [ageFacts]="ageFacts"></app-facts>
     <app-activities *ngIf="getEmbeddedComponent()==4" [wmActivities]="wmActivities" [waActivities]="waActivities" [weActivities]="weActivities"></app-activities>
+    <app-reputation *ngIf="getEmbeddedComponent()==5" [reputation]="reputation" [keywords]="keywords"></app-reputation>
   </div>
 </div>
 

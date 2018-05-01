@@ -4,6 +4,7 @@ import {FactService} from "../services/fact.service";
 import {ActivityService} from "../services/activity.service";
 import {ImageService} from "../services/image.service";
 import {GeofactService} from "../services/geofact.service";
+import {ReputationService} from "../services/reputation.service";
 
 @Component({
   selector: 'app-explore',
@@ -23,11 +24,14 @@ export class ExploreComponent implements OnInit {
   area: string;
   population: number;
   density: number;
+  reputation: string;
+  keywords: string[];
   constructor(private compareListService: CompareListService,
               private factService: FactService,
               private activityService: ActivityService,
               private imageService: ImageService,
-              private geoFactService: GeofactService) { }
+              private geoFactService: GeofactService,
+              private reputationService: ReputationService) { }
 
   ngOnInit() {
     this.embeddedComp = 1;
@@ -95,6 +99,18 @@ export class ExploreComponent implements OnInit {
             }else{this.weActivities = activities.we;}
         }
       );
+  }
+
+  showReputation() {
+    this.embeddedComp = 5;
+    this.reputationService.getReputation(this.selected)
+      .subscribe(
+        (reputation: any) => {
+          this.reputation = reputation.summary;
+          //console.log(this.reputation);
+          this.keywords = reputation.keywords;
+          //console.log(this.keywords)
+        });
   }
 
   getEmbeddedComponent(){

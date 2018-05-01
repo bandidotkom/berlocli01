@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { ImagesComponent } from './images/images.component';
 import { FactsComponent } from './facts/facts.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { ReputationComponent } from './reputation/reputation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ActivitiesComponent } from './activities/activities.component';
     HeaderComponent,
     ImagesComponent,
     FactsComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    ReputationComponent
   ],
   imports: [
     BrowserModule,
