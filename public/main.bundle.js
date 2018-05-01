@@ -116,12 +116,14 @@ module.exports = "<router-outlet></router-outlet>\n"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_image_service__ = __webpack_require__("./src/app/services/image.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__ = __webpack_require__("./src/app/services/geofact.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__ = __webpack_require__("./src/app/services/reputation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_search_service__ = __webpack_require__("./src/app/services/search.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -138,7 +140,7 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_fact_service__["a" /* FactService */], __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */], __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */], __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */], __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__["a" /* ReputationService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_1__services_compare_list_service__["a" /* CompareListService */], __WEBPACK_IMPORTED_MODULE_2__services_fact_service__["a" /* FactService */], __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */], __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */], __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */], __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__["a" /* ReputationService */], __WEBPACK_IMPORTED_MODULE_7__services_search_service__["a" /* SearchService */]]
         })
     ], AppComponent);
     return AppComponent;
@@ -583,7 +585,7 @@ module.exports = ""
 /***/ "./src/app/facts/facts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-6\">\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"genderFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-6\">\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"natFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n</div>\n<div class=\"row\" style=\"height: 390px;\">\n  <div class=\"col-md-3\">\n    </div>\n  <div class=\"col-md-6\">\n<ngx-charts-bar-vertical\n  [view]=\"view\"\n  [scheme]=\"colorScheme\"\n  [results]=\"ageFacts\"\n  [gradient]=\"gradient\"\n  [xAxis]=\"showXAxis\"\n  [yAxis]=\"showYAxis\"\n  [legend]=\"showLegend\"\n  [showXAxisLabel]=\"showXAxisLabel\"\n  [showYAxisLabel]=\"showYAxisLabel\"\n  [xAxisLabel]=\"xAxisLabel\"\n  [yAxisLabel]=\"yAxisLabel\"\n  (select)=\"onSelect($event)\">\n</ngx-charts-bar-vertical>\n</div>\n  <div class=\"col-md-3\">\n  </div>\n</div>\n"
+module.exports = "\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-6\">\n    <h3>Morning activities</h3>\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"genderFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-6\">\n    <h3>Afternoon activities</h3>\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"natFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n</div>\n<div class=\"row\" style=\"height: 390px;\">\n  <div class=\"col-md-3\">\n    </div>\n  <div class=\"col-md-6\">\n    <h3>Leisure activities</h3>\n<ngx-charts-bar-vertical\n  [view]=\"view\"\n  [scheme]=\"colorScheme\"\n  [results]=\"ageFacts\"\n  [gradient]=\"gradient\"\n  [xAxis]=\"showXAxis\"\n  [yAxis]=\"showYAxis\"\n  [legend]=\"showLegend\"\n  [showXAxisLabel]=\"showXAxisLabel\"\n  [showYAxisLabel]=\"showYAxisLabel\"\n  [xAxisLabel]=\"xAxisLabel\"\n  [yAxisLabel]=\"yAxisLabel\"\n  (select)=\"onSelect($event)\">\n</ngx-charts-bar-vertical>\n</div>\n  <div class=\"col-md-3\">\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -886,7 +888,7 @@ module.exports = ""
 /***/ "./src/app/reputation/reputation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  {{reputation}}\n</p>\n<ul>\n  <li *ngFor=\"let k of keywords\">{{k}}</li>\n</ul>\n"
+module.exports = "<h3>Description</h3>\n<p>\n  {{reputation}}\n</p>\n<h3>Keywords</h3>\n<ul>\n  <li *ngFor=\"let k of keywords\">{{k}}</li>\n</ul>\n"
 
 /***/ }),
 
@@ -944,7 +946,7 @@ module.exports = ""
 /***/ "./src/app/search/search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<p>\n  search works!\n</p>\n"
+module.exports = "<app-header></app-header>\n<input #preferences>\n<button class=\"btn-primary\"(click)=\"showResults(preferences.value)\">go</button>\n<ol>\n  <li *ngFor=\"let res of resultList\">{{res._source.name}} <button class=\"btn-primary\"(click)=\"addToCompareList(res._source.name)\">add to compare list</button></li>\n</ol>\n"
 
 /***/ }),
 
@@ -954,6 +956,8 @@ module.exports = "<app-header></app-header>\n<p>\n  search works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_search_service__ = __webpack_require__("./src/app/services/search.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__ = __webpack_require__("./src/app/services/compare-list.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -964,9 +968,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SearchComponent = /** @class */ (function () {
-    function SearchComponent() {
+    function SearchComponent(searchService, compareListService) {
+        this.searchService = searchService;
+        this.compareListService = compareListService;
     }
+    SearchComponent.prototype.showResults = function (preferences) {
+        var _this = this;
+        this.searchService.getSearchresults(preferences.replace(/,/g, ''))
+            .subscribe(function (results) {
+            _this.resultList = results;
+            //console.log(this.reputation);
+        });
+    };
+    SearchComponent.prototype.addToCompareList = function (locality) {
+        this.compareListService.addToList(locality);
+    };
     SearchComponent.prototype.ngOnInit = function () {
     };
     SearchComponent = __decorate([
@@ -975,7 +994,8 @@ var SearchComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/search/search.component.html"),
             styles: [__webpack_require__("./src/app/search/search.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_search_service__["a" /* SearchService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_compare_list_service__["a" /* CompareListService */]])
     ], SearchComponent);
     return SearchComponent;
 }());
@@ -1409,6 +1429,48 @@ var ReputationService = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], ReputationService);
     return ReputationService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/search.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SearchService = /** @class */ (function () {
+    function SearchService(http) {
+        this.http = http;
+    }
+    SearchService.prototype.getSearchresults = function (preferences) {
+        return this.http.get('http://localhost:3000/search/' + preferences)
+            .map(function (data) {
+            return data.obj;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].throw(error.json()); });
+    };
+    SearchService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], SearchService);
+    return SearchService;
 }());
 
 

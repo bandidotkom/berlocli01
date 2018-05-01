@@ -1,4 +1,6 @@
 <app-header></app-header>
-<p>
-  search works!
-</p>
+<input #preferences>
+<button class="btn-primary"(click)="showResults(preferences.value)">go</button>
+<ol>
+  <li *ngFor="let res of resultList">{{res._source.name}} <button class="btn-primary"(click)="addToCompareList(res._source.name)">add to compare list</button></li>
+</ol>

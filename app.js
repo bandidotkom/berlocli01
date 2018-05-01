@@ -9,6 +9,7 @@ const factRoutes = require('./controllers/fact');
 const geofactRoutes = require('./controllers/geofact');
 const reputationRoutes = require('./controllers/reputation');
 const activityRoutes = require('./controllers/activity');
+const searchRoutes = require('./controllers/search');
 //Declaring Port
 const port = 3000;
 
@@ -37,6 +38,7 @@ app.use('/activities', activityRoutes);
 app.use('/fact', factRoutes);
 app.use('/geofact', geofactRoutes);
 app.use('/reputation', reputationRoutes);
+app.use('/search', searchRoutes);
 app.get('/', (req,res) => {
    res.send("Invalid page");
 })
