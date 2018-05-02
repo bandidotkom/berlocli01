@@ -1,19 +1,20 @@
 <app-header></app-header>
 <div id="exploremain" class="row">
   <div class="col-md-4">
-    <p>Please select a localty by clicking the map.</p>
-    <p>Your selection: {{selected}}</p>
-    <button *ngIf="isSelected()" class="btn-primary"(click)="addToCompareList()">add to compare list</button>
-    <br>
-    <button *ngIf="isSelected()" class="btn-primary"(click)="showFacts()">show facts</button>
-    <br>
-    <button *ngIf="isSelected()" class="btn-primary"(click)="showActivities()">show activities</button>
-    <br>
-    <button *ngIf="isSelected()" class="btn-primary"(click)="showReputation()">show reputation</button>
-    <br>
-    <button *ngIf="isSelected()" class="btn-primary"(click)="showImages()">show images</button>
-    <br>
-    <button *ngIf="getEmbeddedComponent()>1" class="btn-primary"(click)="backToMap()">back to map</button>
+    <h4>Please select a locality by clicking the map.</h4>
+    <h2>Your selection: {{selected}}</h2>
+    <button *ngIf="isSelected()" class="btn-outline-primary"(click)="addToCompareList()">add to compare list</button>
+    <br/>
+    <button *ngIf="isSelected()" class="btn-outline-primary"(click)="showFacts()">show population</button>
+    <br/>
+    <button *ngIf="isSelected()" class="btn-outline-primary"(click)="showActivities()">show activities</button>
+    <br/>
+    <button *ngIf="isSelected()" class="btn-outline-primary"(click)="showReputation()">show reputation</button>
+    <br/>
+    <button *ngIf="isSelected()" class="btn-outline-primary"(click)="showImages()">show images</button>
+    <br/>
+    <button *ngIf="getEmbeddedComponent()>1" class="btn-outline-secondary"(click)="backToMap()">back to map</button>
+    <hr/>
     <ul *ngIf="isSelected()">
       <li>area: {{area}} sq. km</li>
       <li>fact: {{population}}</li>

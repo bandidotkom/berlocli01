@@ -19,7 +19,7 @@ export class CompareComponent implements OnInit {
   waActivities = {};
   weActivities = {};
 
-  showLegend = true;
+  showLegend = false;
   colorScheme= {
     domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
   };

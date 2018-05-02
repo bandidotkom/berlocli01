@@ -49,7 +49,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ActivitiesComponent = /** @class */ (function () {
     function ActivitiesComponent() {
-        this.showLegend = true;
+        this.showLegend = false;
         this.colorScheme = {
             domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
         };
@@ -268,7 +268,7 @@ var appRoutes = [
         component: __WEBPACK_IMPORTED_MODULE_4__compare_compare_component__["a" /* CompareComponent */]
     }
 ];
-var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(appRoutes);
+var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(appRoutes);
 
 
 /***/ }),
@@ -283,7 +283,7 @@ module.exports = ""
 /***/ "./src/app/compare/compare.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div *ngFor=\"let c of cList\" class=\"col-md-4\">\n    <h2>{{c}}</h2>\n    <p>area: {{geoData[c].area}}</p>\n    <p>population: {{geoData[c].population}}</p>\n    <p>density: {{geoData[c].density}}</p>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"genderData[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"nationalityData[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-bar-vertical\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"ageData[c]\"\n      [gradient]=\"gradient\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-bar-vertical>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n\n"
+module.exports = "<app-header></app-header>\n<div class=\"container\">\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div *ngFor=\"let c of cList\" class=\"col-md-4\">\n    <h2>{{c}}</h2>\n    <p>area: {{geoData[c].area}}</p>\n    <p>population: {{geoData[c].population}}</p>\n    <p>density: {{geoData[c].density}}</p>\n    <h3>Gender</h3>\n    <h5>{{c}}</h5>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"genderData[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <hr/>\n    <h3>Nationality</h3>\n    <h5>{{c}}</h5>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"nationalityData[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <hr/>\n    <h3>Age</h3>\n    <h5>{{c}}</h5>\n    <ngx-charts-bar-vertical\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"ageData[c]\"\n      [gradient]=\"gradient\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-bar-vertical>\n    <hr/>\n    <h3>Morning activities</h3>\n    <h5>{{c}}</h5>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <hr/>\n    <h3>Afternoon activities</h3>\n    <h5>{{c}}</h5>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <hr/>\n    <h3>Leisure activities</h3>\n    <h5>{{c}}</h5>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -325,7 +325,7 @@ var CompareComponent = /** @class */ (function () {
         this.wmActivities = {};
         this.waActivities = {};
         this.weActivities = {};
-        this.showLegend = true;
+        this.showLegend = false;
         this.colorScheme = {
             domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
         };
@@ -428,14 +428,14 @@ var CompareComponent = /** @class */ (function () {
 /***/ "./src/app/explore/explore.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#exploremain {\r\n  height: 840px;\r\n}\r\n"
+module.exports = "#exploremain {\r\n  height: 840px;\r\n}\r\n\r\nbutton{\r\n  width: 40%;\r\n  margin: 5%;\r\n  text-align: center;\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/explore/explore.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <p>Please select a localty by clicking the map.</p>\n    <p>Your selection: {{selected}}</p>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showFacts()\">show facts</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showActivities()\">show activities</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showReputation()\">show reputation</button>\n    <br>\n    <button *ngIf=\"isSelected()\" class=\"btn-primary\"(click)=\"showImages()\">show images</button>\n    <br>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-primary\"(click)=\"backToMap()\">back to map</button>\n    <ul *ngIf=\"isSelected()\">\n      <li>area: {{area}} sq. km</li>\n      <li>fact: {{population}}</li>\n      <li>density: {{density}}</li>\n    </ul>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\" [wmActivities]=\"wmActivities\" [waActivities]=\"waActivities\" [weActivities]=\"weActivities\"></app-activities>\n    <app-reputation *ngIf=\"getEmbeddedComponent()==5\" [reputation]=\"reputation\" [keywords]=\"keywords\"></app-reputation>\n  </div>\n</div>\n\n\n\n"
+module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row\">\n  <div class=\"col-md-4\">\n    <h4>Please select a locality by clicking the map.</h4>\n    <h2>Your selection: {{selected}}</h2>\n    <button *ngIf=\"isSelected()\" class=\"btn-outline-primary\"(click)=\"addToCompareList()\">add to compare list</button>\n    <br/>\n    <button *ngIf=\"isSelected()\" class=\"btn-outline-primary\"(click)=\"showFacts()\">show population</button>\n    <br/>\n    <button *ngIf=\"isSelected()\" class=\"btn-outline-primary\"(click)=\"showActivities()\">show activities</button>\n    <br/>\n    <button *ngIf=\"isSelected()\" class=\"btn-outline-primary\"(click)=\"showReputation()\">show reputation</button>\n    <br/>\n    <button *ngIf=\"isSelected()\" class=\"btn-outline-primary\"(click)=\"showImages()\">show images</button>\n    <br/>\n    <button *ngIf=\"getEmbeddedComponent()>1\" class=\"btn-outline-secondary\"(click)=\"backToMap()\">back to map</button>\n    <hr/>\n    <ul *ngIf=\"isSelected()\">\n      <li>area: {{area}} sq. km</li>\n      <li>fact: {{population}}</li>\n      <li>density: {{density}}</li>\n    </ul>\n  </div>\n  <div class=\"col-md-8\">\n    <app-map *ngIf=\"getEmbeddedComponent()==1\" (onSelected)=\"onSelected($event)\"></app-map>\n    <app-images *ngIf=\"getEmbeddedComponent()==2\" [urls]=\"urls\"></app-images>\n    <app-facts *ngIf=\"getEmbeddedComponent()==3\" [genderFacts]=\"genderFacts\" [natFacts]=\"natFacts\" [ageFacts]=\"ageFacts\"></app-facts>\n    <app-activities *ngIf=\"getEmbeddedComponent()==4\" [wmActivities]=\"wmActivities\" [waActivities]=\"waActivities\" [weActivities]=\"weActivities\"></app-activities>\n    <app-reputation *ngIf=\"getEmbeddedComponent()==5\" [reputation]=\"reputation\" [keywords]=\"keywords\"></app-reputation>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -451,6 +451,7 @@ module.exports = "<app-header></app-header>\n<div id=\"exploremain\" class=\"row
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_image_service__ = __webpack_require__("./src/app/services/image.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__ = __webpack_require__("./src/app/services/geofact.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__ = __webpack_require__("./src/app/services/reputation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -467,33 +468,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ExploreComponent = /** @class */ (function () {
-    function ExploreComponent(compareListService, factService, activityService, imageService, geoFactService, reputationService) {
+    function ExploreComponent(compareListService, factService, activityService, imageService, geoFactService, reputationService, route) {
         this.compareListService = compareListService;
         this.factService = factService;
         this.activityService = activityService;
         this.imageService = imageService;
         this.geoFactService = geoFactService;
         this.reputationService = reputationService;
+        this.route = route;
     }
     ExploreComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.embeddedComp = 1;
+        this.route.params.subscribe(function (params) { return _this.selected = params['selected']; });
+        if (this.selected) {
+            this.showGeoFacts();
+        }
     };
     ExploreComponent.prototype.addToCompareList = function () {
         this.compareListService.addToList(this.selected);
     };
     ExploreComponent.prototype.onSelected = function (locality) {
-        var _this = this;
         this.selected = locality;
+        this.showGeoFacts();
+    };
+    ExploreComponent.prototype.isSelected = function () {
+        return this.selected != undefined;
+    };
+    ExploreComponent.prototype.showGeoFacts = function () {
+        var _this = this;
         this.geoFactService.getFacts(this.selected)
             .subscribe(function (data) {
             _this.area = data.area;
             _this.population = data.population;
             _this.density = data.density;
         });
-    };
-    ExploreComponent.prototype.isSelected = function () {
-        return this.selected != undefined;
     };
     ExploreComponent.prototype.showImages = function () {
         var _this = this;
@@ -574,7 +585,8 @@ var ExploreComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__services_activity_service__["a" /* ActivityService */],
             __WEBPACK_IMPORTED_MODULE_4__services_image_service__["a" /* ImageService */],
             __WEBPACK_IMPORTED_MODULE_5__services_geofact_service__["a" /* GeofactService */],
-            __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__["a" /* ReputationService */]])
+            __WEBPACK_IMPORTED_MODULE_6__services_reputation_service__["a" /* ReputationService */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* ActivatedRoute */]])
     ], ExploreComponent);
     return ExploreComponent;
 }());
@@ -615,7 +627,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var FactsComponent = /** @class */ (function () {
     function FactsComponent() {
-        this.showLegend = true;
+        this.showLegend = false;
         this.colorScheme = {
             domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
         };
@@ -666,14 +678,14 @@ var FactsComponent = /** @class */ (function () {
 /***/ "./src/app/header/header.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".navbar .navbar-brand {\r\n  background-color: #464646;\r\n}\r\n\r\na.nav-link.active-link {\r\n  font-weight: bold;\r\n}\r\n\r\na.nav-link.disabled {\r\n  pointer-events: none;\r\n  cursor: default;\r\n  text-decoration:none;\r\n}\r\n\r\n#close {\r\n  float:right;\r\n  display:inline-block;\r\n  padding:2px 5px;\r\n  background:#ccc;\r\n}\r\n\r\n.fragment {\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  display: inline-block;\r\n  padding: 10px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\n.fragment:hover {\r\n  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,.2);\r\n          box-shadow: 2px 2px 5px rgba(0,0,0,.2);\r\n}\r\n"
+module.exports = ".navbar .navbar-brand {\r\n  background-color: #464646;\r\n}\r\n\r\na.nav-link.active-link {\r\n  font-weight: bold;\r\n}\r\n\r\na.nav-link.disabled {\r\n  pointer-events: none;\r\n  cursor: default;\r\n  text-decoration:none;\r\n}\r\n\r\n#close {\r\n  float:right;\r\n  display:inline-block;\r\n  padding:2px 5px;\r\n  background:#ccc;\r\n}\r\n\r\n.fragment {\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  display: inline-block;\r\n  padding: 10px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\n.fragment:hover {\r\n  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,.2);\r\n          box-shadow: 2px 2px 5px rgba(0,0,0,.2);\r\n}\r\n\r\n"
 
 /***/ }),
 
 /***/ "./src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"/\">BERLO</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/explore\" routerLinkActive=\"active-link\">Explore <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/search\" routerLinkActive=\"active-link\">Search</a>\n      </li>\n\n      <li class=\"nav-item\">\n        Compare list:\n        <span *ngFor=\"let loc of compareList\" class=\"fragment\" href=\"google.com\">{{ loc }} <a id=\"close\" (click)=\"delete($event)\"> x</a>\n        </span>\n      </li>\n      <li class=\"nav-item\">\n        <a [ngClass]=\"isDisabled()\" routerLink=\"/compare\" routerLinkActive=\"active-link\">Compare</a>\n      </li>\n    </ul>\n\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"/\">BERLO</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/explore\" routerLinkActive=\"active-link\">Explore <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/search\" routerLinkActive=\"active-link\">Search</a>\n      </li>\n      <li class=\"nav-item\">\n        <a [ngClass]=\"isDisabled()\" routerLink=\"/compare\" routerLinkActive=\"active-link\">Compare</a>\n      </li>\n      <li class=\"nav-item\">\n        <span *ngFor=\"let loc of compareList\" class=\"fragment\" href=\"google.com\">{{ loc }} <a id=\"close\" (click)=\"delete($event)\"> x</a>\n        </span>\n      </li>\n\n    </ul>\n\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -833,7 +845,7 @@ var MapComponent = /** @class */ (function () {
             zoom: 10,
             center: __WEBPACK_IMPORTED_MODULE_2_leaflet__["latLng"]([52.520008, 13.404954])
         };
-    }; //ngOnInit()
+    };
     MapComponent.prototype.onMapReady = function (map) {
         var _this = this;
         this.http.get('assets/data/ortsteile.geojson')
@@ -947,14 +959,14 @@ var ReputationComponent = /** @class */ (function () {
 /***/ "./src/app/search/search.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".col-centered{\r\n  margin: 0 auto;\r\n  float: none;\r\n  text-align: center;\r\n}\r\n"
 
 /***/ }),
 
 /***/ "./src/app/search/search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<input #preferences>\n<button class=\"btn-primary\"(click)=\"showResults(preferences.value)\">go</button>\n<ol>\n  <li *ngFor=\"let res of resultList\">{{res._source.name}} <button class=\"btn-primary\"(click)=\"addToCompareList(res._source.name)\">add to compare list</button></li>\n</ol>\n"
+module.exports = "<app-header></app-header>\n<div class=\"row\">\n\n  <div class=\"col-md-4 col-centered\">\n    <h3>What are your preferences?</h3>\n    <h1>You can type as many words as you wish</h1>\n    <div class=\"input-group\">\n      <input #preferences type=\"text\" class=\"form-control\" placeholder=\"e.g. villas, expensive, Bauhaus\" />\n      <span class=\"input-group-btn\">\n                <button class=\"btn-primary\"(click)=\"showResults(preferences.value)\">go</button>\n            </span>\n    </div><!-- /input-group -->\n    <ol>\n      <li *ngFor=\"let res of resultList\">{{res._source.name}}\n        <button class=\"btn-outline-primary\"(click)=\"addToCompareList(res._source.name)\">add to compare list</button>\n        <a class=\"nav-link\" [routerLink]=\"['/explore', {selected: res._source.name}]\"  routerLinkActive=\"active-link\">explore</a></li>\n    </ol>\n  </div><!-- /.col-lg-4 -->\n</div><!-- /.row -->\n\n"
 
 /***/ }),
 

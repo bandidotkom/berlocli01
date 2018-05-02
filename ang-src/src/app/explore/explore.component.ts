@@ -5,6 +5,8 @@ import {ActivityService} from "../services/activity.service";
 import {ImageService} from "../services/image.service";
 import {GeofactService} from "../services/geofact.service";
 import {ReputationService} from "../services/reputation.service";
+import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
   selector: 'app-explore',
@@ -31,16 +33,28 @@ export class ExploreComponent implements OnInit {
               private activityService: ActivityService,
               private imageService: ImageService,
               private geoFactService: GeofactService,
-              private reputationService: ReputationService) { }
+              private reputationService: ReputationService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.embeddedComp = 1;
+    this.route.params.subscribe(params => this.selected = params['selected']);
+    if (this.selected){
+      this.showGeoFacts();
+    }
   }
   addToCompareList(){
     this.compareListService.addToList(this.selected);
   }
   onSelected(locality: string) {
     this.selected = locality;
+    this.showGeoFacts();
+  }
+  isSelected() {
+    return this.selected!=undefined;
+  }
+
+  showGeoFacts() {
     this.geoFactService.getFacts(this.selected)
       .subscribe(
         (data: any) => {
@@ -50,10 +64,6 @@ export class ExploreComponent implements OnInit {
 
         });
   }
-  isSelected() {
-    return this.selected!=undefined;
-  }
-
   showImages() {
     this.embeddedComp = 2;
     this.imageService.getImages(this.selected)

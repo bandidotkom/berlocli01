@@ -1,6 +1,20 @@
 <app-header></app-header>
-<input #preferences>
-<button class="btn-primary"(click)="showResults(preferences.value)">go</button>
-<ol>
-  <li *ngFor="let res of resultList">{{res._source.name}} <button class="btn-primary"(click)="addToCompareList(res._source.name)">add to compare list</button></li>
-</ol>
+<div class="row">
+
+  <div class="col-md-4 col-centered">
+    <h3>What are your preferences?</h3>
+    <h1>You can type as many words as you wish</h1>
+    <div class="input-group">
+      <input #preferences type="text" class="form-control" placeholder="e.g. villas, expensive, Bauhaus" />
+      <span class="input-group-btn">
+                <button class="btn-primary"(click)="showResults(preferences.value)">go</button>
+            </span>
+    </div><!-- /input-group -->
+    <ol>
+      <li *ngFor="let res of resultList">{{res._source.name}}
+        <button class="btn-outline-primary"(click)="addToCompareList(res._source.name)">add to compare list</button>
+        <a class="nav-link" [routerLink]="['/explore', {selected: res._source.name}]"  routerLinkActive="active-link">explore</a></li>
+    </ol>
+  </div><!-- /.col-lg-4 -->
+</div><!-- /.row -->
+

@@ -10,7 +10,7 @@ export class ActivitiesComponent implements OnInit {
   @Input() waActivities: any;
   @Input() weActivities: any;
   constructor() { }
-  showLegend = true;
+  showLegend = false;
   colorScheme= {
     domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
   };

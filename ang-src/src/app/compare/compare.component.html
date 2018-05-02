@@ -1,11 +1,13 @@
 <app-header></app-header>
-
+<div class="container">
 <div class="row" style="height: 390px;width:80%">
   <div *ngFor="let c of cList" class="col-md-4">
     <h2>{{c}}</h2>
     <p>area: {{geoData[c].area}}</p>
     <p>population: {{geoData[c].population}}</p>
     <p>density: {{geoData[c].density}}</p>
+    <h3>Gender</h3>
+    <h5>{{c}}</h5>
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
@@ -17,6 +19,9 @@
       [gradient]="gradient"
       (select)="onSelect($event)">
     </ngx-charts-pie-chart>
+    <hr/>
+    <h3>Nationality</h3>
+    <h5>{{c}}</h5>
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
@@ -28,6 +33,9 @@
       [gradient]="gradient"
       (select)="onSelect($event)">
     </ngx-charts-pie-chart>
+    <hr/>
+    <h3>Age</h3>
+    <h5>{{c}}</h5>
     <ngx-charts-bar-vertical
       [view]="view"
       [scheme]="colorScheme"
@@ -42,6 +50,9 @@
       [yAxisLabel]="yAxisLabel"
       (select)="onSelect($event)">
     </ngx-charts-bar-vertical>
+    <hr/>
+    <h3>Morning activities</h3>
+    <h5>{{c}}</h5>
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
@@ -53,7 +64,9 @@
       [gradient]="gradient"
       (select)="onSelect($event)">
     </ngx-charts-pie-chart>
-
+    <hr/>
+    <h3>Afternoon activities</h3>
+    <h5>{{c}}</h5>
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
@@ -65,7 +78,9 @@
       [gradient]="gradient"
       (select)="onSelect($event)">
     </ngx-charts-pie-chart>
-
+    <hr/>
+    <h3>Leisure activities</h3>
+    <h5>{{c}}</h5>
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
@@ -79,4 +94,4 @@
     </ngx-charts-pie-chart>
   </div>
 </div>
-
+</div>

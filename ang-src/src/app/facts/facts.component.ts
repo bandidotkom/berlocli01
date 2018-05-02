@@ -10,7 +10,7 @@ export class FactsComponent implements OnInit {
   @Input() natFacts: any;
   @Input() ageFacts: any;
 
-  showLegend = true;
+  showLegend = false;
   colorScheme= {
     domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
   };

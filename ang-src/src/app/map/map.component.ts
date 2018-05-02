@@ -27,7 +27,7 @@ export class MapComponent implements OnInit {
       zoom: 10,
       center: L.latLng([52.520008, 13.404954])
     };
-  }//ngOnInit()
+  }
 
   onMapReady(map: L.Map) {
     this.http.get<any>('assets/data/ortsteile.geojson')
