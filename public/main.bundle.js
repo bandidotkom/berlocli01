@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/activities/activities.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-6\">\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-6\">\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n<div class=\"row\" style=\"height: 390px;\">\n  <div class=\"col-md-3\">\n  </div>\n  <div class=\"col-md-6\">\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-3\">\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-2\">\n  </div>\n  <div class=\"col-md-10\">\n    <h3>Morning activities</h3>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <h3>Afternoon activities</h3>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <h3>Leisure activities</h3>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -283,7 +283,7 @@ module.exports = ""
 /***/ "./src/app/compare/compare.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div *ngFor=\"let i of indexList\" class=\"col-md-4\">\n    <h2>{{cList[i]}}</h2>\n    <p>area: {{geoData[i].area}}</p>\n    <p>population: {{geoData[i].population}}</p>\n    <p>density: {{geoData[i].density}}</p>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"genderData[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"nationalityData[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-bar-vertical\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"ageData[i]\"\n      [gradient]=\"gradient\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-bar-vertical>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities[i]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n\n"
+module.exports = "<app-header></app-header>\n\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div *ngFor=\"let c of cList\" class=\"col-md-4\">\n    <h2>{{c}}</h2>\n    <p>area: {{geoData[c].area}}</p>\n    <p>population: {{geoData[c].population}}</p>\n    <p>density: {{geoData[c].density}}</p>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"genderData[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"nationalityData[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n    <ngx-charts-bar-vertical\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"ageData[c]\"\n      [gradient]=\"gradient\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-bar-vertical>\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"wmActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"waActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n\n    <ngx-charts-pie-chart\n      [view]=\"view\"\n      [scheme]=\"colorScheme\"\n      [results]=\"weActivities[c]\"\n      [legend]=\"showLegend\"\n      [explodeSlices]=\"explodeSlices\"\n      [labels]=\"showLabels\"\n      [doughnut]=\"doughnut\"\n      [gradient]=\"gradient\"\n      (select)=\"onSelect($event)\">\n    </ngx-charts-pie-chart>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -318,14 +318,13 @@ var CompareComponent = /** @class */ (function () {
         this.geoService = geoService;
         this.activityService = activityService;
         this.cList = [];
-        this.genderData = [];
-        this.nationalityData = [];
-        this.ageData = [];
-        this.geoData = [];
-        this.wmActivities = [];
-        this.waActivities = [];
-        this.weActivities = [];
-        this.indexList = [];
+        this.genderData = {};
+        this.nationalityData = {};
+        this.ageData = {};
+        this.geoData = {};
+        this.wmActivities = {};
+        this.waActivities = {};
+        this.weActivities = {};
         this.showLegend = true;
         this.colorScheme = {
             domain: ['#0F3899', '#6DA1D8', '#D2FDFF']
@@ -356,47 +355,56 @@ var CompareComponent = /** @class */ (function () {
     CompareComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.cList = this.compareListService.getList();
-        var i = 0;
-        for (var _i = 0, _a = this.cList; _i < _a.length; _i++) {
-            var loc = _a[_i];
-            this.indexList.push(i);
-            i++;
-            this.factService.getPopulation(loc)
+        var _loop_1 = function (loc) {
+            this_1.factService.getPopulation(loc)
                 .subscribe(function (population) {
                 console.log(population);
-                _this.genderData.push(population.gender);
-                _this.nationalityData.push(population.nationality);
-                _this.ageData.push(population.age);
+                _this.genderData[loc] = population.gender;
+                _this.nationalityData[loc] = population.nationality;
+                _this.ageData[loc] = population.age;
             });
+        };
+        var this_1 = this;
+        for (var _i = 0, _a = this.cList; _i < _a.length; _i++) {
+            var loc = _a[_i];
+            _loop_1(loc);
         }
+        var _loop_2 = function (loc) {
+            this_2.geoService.getFacts(loc)
+                .subscribe(function (geodata) { _this.geoData[loc] = geodata; });
+        };
+        var this_2 = this;
         for (var _b = 0, _c = this.cList; _b < _c.length; _b++) {
             var loc = _c[_b];
-            this.geoService.getFacts(loc)
-                .subscribe(function (geodata) { _this.geoData.push(geodata); });
+            _loop_2(loc);
         }
-        for (var _d = 0, _e = this.cList; _d < _e.length; _d++) {
-            var loc = _e[_d];
-            this.activityService.getActivities(loc)
+        var _loop_3 = function (loc) {
+            this_3.activityService.getActivities(loc)
                 .subscribe(function (activities) {
-                if (activities.wm.length > 12) {
-                    _this.wmActivities.push(activities.wm.sort(_this.compare).slice(0, 12));
+                if (activities.wm.length > 7) {
+                    _this.wmActivities[loc] = activities.wm.sort(_this.compare).slice(0, 7);
                 }
                 else {
-                    _this.wmActivities.push(activities.wm);
+                    _this.wmActivities[loc] = activities.wm;
                 }
-                if (activities.wa.length > 12) {
-                    _this.waActivities.push(activities.wa.sort(_this.compare).slice(0, 12));
-                }
-                else {
-                    _this.waActivities.push(activities.wa);
-                }
-                if (activities.we.length > 12) {
-                    _this.weActivities.push(activities.we.sort(_this.compare).slice(0, 12));
+                if (activities.wa.length > 7) {
+                    _this.waActivities[loc] = activities.wa.sort(_this.compare).slice(0, 7);
                 }
                 else {
-                    _this.weActivities.push(activities.we);
+                    _this.waActivities[loc] = activities.wa;
+                }
+                if (activities.we.length > 7) {
+                    _this.weActivities[loc] = activities.we.sort(_this.compare).slice(0, 7);
+                }
+                else {
+                    _this.weActivities[loc] = activities.we;
                 }
             });
+        };
+        var this_3 = this;
+        for (var _d = 0, _e = this.cList; _d < _e.length; _d++) {
+            var loc = _e[_d];
+            _loop_3(loc);
         }
     };
     CompareComponent = __decorate([
@@ -585,7 +593,7 @@ module.exports = ""
 /***/ "./src/app/facts/facts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-6\">\n    <h3>Morning activities</h3>\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"genderFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-6\">\n    <h3>Afternoon activities</h3>\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"natFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n</div>\n<div class=\"row\" style=\"height: 390px;\">\n  <div class=\"col-md-3\">\n    </div>\n  <div class=\"col-md-6\">\n    <h3>Leisure activities</h3>\n<ngx-charts-bar-vertical\n  [view]=\"view\"\n  [scheme]=\"colorScheme\"\n  [results]=\"ageFacts\"\n  [gradient]=\"gradient\"\n  [xAxis]=\"showXAxis\"\n  [yAxis]=\"showYAxis\"\n  [legend]=\"showLegend\"\n  [showXAxisLabel]=\"showXAxisLabel\"\n  [showYAxisLabel]=\"showYAxisLabel\"\n  [xAxisLabel]=\"xAxisLabel\"\n  [yAxisLabel]=\"yAxisLabel\"\n  (select)=\"onSelect($event)\">\n</ngx-charts-bar-vertical>\n</div>\n  <div class=\"col-md-3\">\n  </div>\n</div>\n"
+module.exports = "\n<div class=\"row\" style=\"height: 390px;width:80%\">\n  <div class=\"col-md-6\">\n    <h3>Gender</h3>\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"genderFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n  <div class=\"col-md-6\">\n    <h3>Nationality</h3>\n  <ngx-charts-pie-chart\n    [view]=\"view\"\n    [scheme]=\"colorScheme\"\n    [results]=\"natFacts\"\n    [legend]=\"showLegend\"\n    [explodeSlices]=\"explodeSlices\"\n    [labels]=\"showLabels\"\n    [doughnut]=\"doughnut\"\n    [gradient]=\"gradient\"\n    (select)=\"onSelect($event)\">\n  </ngx-charts-pie-chart>\n  </div>\n</div>\n<div class=\"row\" style=\"height: 390px;\">\n  <div class=\"col-md-3\">\n    </div>\n  <div class=\"col-md-6\">\n    <h3>Age</h3>\n<ngx-charts-bar-vertical\n  [view]=\"view\"\n  [scheme]=\"colorScheme\"\n  [results]=\"ageFacts\"\n  [gradient]=\"gradient\"\n  [xAxis]=\"showXAxis\"\n  [yAxis]=\"showYAxis\"\n  [legend]=\"showLegend\"\n  [showXAxisLabel]=\"showXAxisLabel\"\n  [showYAxisLabel]=\"showYAxisLabel\"\n  [xAxisLabel]=\"xAxisLabel\"\n  [yAxisLabel]=\"yAxisLabel\"\n  (select)=\"onSelect($event)\">\n</ngx-charts-bar-vertical>\n</div>\n  <div class=\"col-md-3\">\n  </div>\n</div>\n"
 
 /***/ }),
 

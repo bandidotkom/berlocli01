@@ -11,14 +11,13 @@ import {ActivityService} from "../services/activity.service";
 })
 export class CompareComponent implements OnInit {
   cList = [];
-  genderData = [];
-  nationalityData = [];
-  ageData = [];
-  geoData = [];
-  wmActivities = [];
-  waActivities = [];
-  weActivities = [];
-  indexList = [];
+  genderData = {};
+  nationalityData = {};
+  ageData = {};
+  geoData = {};
+  wmActivities = {};
+  waActivities = {};
+  weActivities = {};
 
   showLegend = true;
   colorScheme= {
@@ -48,6 +47,7 @@ export class CompareComponent implements OnInit {
               private factService: FactService,
               private geoService: GeofactService,
               private activityService: ActivityService) { }
+
   compare(a, b) {
     if (a.value > b.value)
       return -1;
@@ -57,40 +57,37 @@ export class CompareComponent implements OnInit {
   }
   ngOnInit() {
     this.cList = this.compareListService.getList();
-    let i = 0;
 
     for (const loc of this.cList){
-      this.indexList.push(i);
-      i++;
       this.factService.getPopulation(loc)
         .subscribe(
           (population: any) => {
             console.log(population);
-            this.genderData.push(population.gender);
-            this.nationalityData.push(population.nationality);
-            this.ageData.push(population.age);}
+            this.genderData[loc] = population.gender;
+            this.nationalityData[loc] = population.nationality;
+            this.ageData[loc] = population.age;}
         );
     }
 
     for (const loc of this.cList){
       this.geoService.getFacts(loc)
         .subscribe(
-          (geodata: any) => {this.geoData.push(geodata);}
+          (geodata: any) => {this.geoData[loc] = geodata;}
         );
     }
     for (const loc of this.cList){
       this.activityService.getActivities(loc)
         .subscribe(
           (activities: any) => {
-            if (activities.wm.length>12) {
-              this.wmActivities.push(activities.wm.sort(this.compare).slice(0,12));
-            }else{this.wmActivities.push(activities.wm);}
-            if (activities.wa.length>12) {
-              this.waActivities.push(activities.wa.sort(this.compare).slice(0,12));
-            }else{this.waActivities.push(activities.wa);}
-            if (activities.we.length>12) {
-              this.weActivities.push(activities.we.sort(this.compare).slice(0,12));
-            }else{this.weActivities.push(activities.we);}
+            if (activities.wm.length>7) {
+              this.wmActivities[loc] = activities.wm.sort(this.compare).slice(0,7);
+            }else{this.wmActivities[loc] = activities.wm;}
+            if (activities.wa.length>7) {
+              this.waActivities[loc] = activities.wa.sort(this.compare).slice(0,7);
+            }else{this.waActivities[loc] = activities.wa;}
+            if (activities.we.length>7) {
+              this.weActivities[loc] = activities.we.sort(this.compare).slice(0,7);
+            }else{this.weActivities[loc] = activities.we;}
           }
         );
     }

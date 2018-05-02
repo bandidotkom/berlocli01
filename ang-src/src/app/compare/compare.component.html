@@ -1,15 +1,15 @@
 <app-header></app-header>
 
 <div class="row" style="height: 390px;width:80%">
-  <div *ngFor="let i of indexList" class="col-md-4">
-    <h2>{{cList[i]}}</h2>
-    <p>area: {{geoData[i].area}}</p>
-    <p>population: {{geoData[i].population}}</p>
-    <p>density: {{geoData[i].density}}</p>
+  <div *ngFor="let c of cList" class="col-md-4">
+    <h2>{{c}}</h2>
+    <p>area: {{geoData[c].area}}</p>
+    <p>population: {{geoData[c].population}}</p>
+    <p>density: {{geoData[c].density}}</p>
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
-      [results]="genderData[i]"
+      [results]="genderData[c]"
       [legend]="showLegend"
       [explodeSlices]="explodeSlices"
       [labels]="showLabels"
@@ -20,7 +20,7 @@
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
-      [results]="nationalityData[i]"
+      [results]="nationalityData[c]"
       [legend]="showLegend"
       [explodeSlices]="explodeSlices"
       [labels]="showLabels"
@@ -31,7 +31,7 @@
     <ngx-charts-bar-vertical
       [view]="view"
       [scheme]="colorScheme"
-      [results]="ageData[i]"
+      [results]="ageData[c]"
       [gradient]="gradient"
       [xAxis]="showXAxis"
       [yAxis]="showYAxis"
@@ -45,7 +45,7 @@
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
-      [results]="wmActivities[i]"
+      [results]="wmActivities[c]"
       [legend]="showLegend"
       [explodeSlices]="explodeSlices"
       [labels]="showLabels"
@@ -57,7 +57,7 @@
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
-      [results]="waActivities[i]"
+      [results]="waActivities[c]"
       [legend]="showLegend"
       [explodeSlices]="explodeSlices"
       [labels]="showLabels"
@@ -69,7 +69,7 @@
     <ngx-charts-pie-chart
       [view]="view"
       [scheme]="colorScheme"
-      [results]="weActivities[i]"
+      [results]="weActivities[c]"
       [legend]="showLegend"
       [explodeSlices]="explodeSlices"
       [labels]="showLabels"
