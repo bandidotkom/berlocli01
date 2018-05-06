@@ -1,6 +1,6 @@
 # Running the application
 
-visit https://berlo.herokuapp.com/explore
+visit https://berlo.herokuapp.com/
 or run the application locally (localhost:3000): 
 $npm install
 $npm start
