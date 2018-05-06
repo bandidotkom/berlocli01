@@ -1,4 +1,13 @@
-# NgxLeafletTutorialNgcli
+# Running the application
+
+visit https://berlo.herokuapp.com/explore
+or run the application locally (localhost:3000): 
+$npm install
+$npm start
+
+
+
+# Client side Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
